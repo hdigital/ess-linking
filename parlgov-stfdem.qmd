@@ -1,0 +1,355 @@
+# ParlGov losers' consent
+
+ESS linking example – see also sections "Party-voted-for in government" and "Performance of Party Facts linking" in manuscript.
+
+```{r}
+library(conflicted)
+
+library(tidyverse)
+conflicts_prefer(dplyr::filter, .quiet = TRUE)
+library(glue)
+library(knitr)
+
+library(broom) # tidy model results
+library(broom.mixed) # tidy model results for lme4
+library(estimatr) # robust standard errors
+library(ggeffects) # effects plots
+library(lme4) # multi-level models
+library(modelsummary) # model tables and coefficient plots
+library(patchwork) # combine plots
+library(reactable) # dynamic tables
+library(skimr) # summary statistics
+
+options(knitr.kable.NA = "")
+
+round_numeric_variables <- function(data, digits = 0) {
+  mutate(data, across(
+    where(is.numeric),
+    \(.x) format(round(.x, digits), scientific = FALSE)
+  ))
+}
+```
+
+```{r}
+ess_raw <- read_rds("data/02-ess-select.rds")
+ess_cabinet_raw <- read_rds("data/07-parlgov-ess_cabinets.rds")
+```
+
+## Losers' consent models
+
+Satisfaction with democracy by those that voted for parties in government vs. opposition. For a book length discussion and empirical assessment of European democracies see Anderson et.al. (2005) -- esp. model page 104. A replication and extension to other regions is provided by Farrer and Zingher (2019, 525)
+
+- Anderson, Christopher, ed. 2005. Losers’ Consent: Elections and Democratic Legitimacy. Oxford ; New York: Oxford University Press.
+- Farrer, Benjamin, and Joshua N Zingher. 2019. “A Global Analysis of How Losing an Election Affects Voter Satisfaction with Democracy.” International Political Science Review 40(4): 518–34. --- doi: [10.1093/poq/nfad003](https://doi.org/10.1093/poq/nfad003)
+
+## Variables
+
+Variables used in __losers' consent__ models and context information
+
+- __stfdem__ --- How satisfied with the way democracy works in country?
+  - 0 // Extremely dissatisfied --- 10 // Extremely satisfied
+- __cabinet__ --- "party-voted-for" (_prtv_) in government after election
+  - ParlGov based calculation
+  - excluding caretaker governments
+- __lrscale__ --- Placement on left right scale
+  - 0 // Left --- 10 // Right
+- __gndr__ --- Gender
+- __agea__ --- Age of respondent, calculated
+- __eduyrs__ --- Years of full-time education completed
+- _ESS identifiers_
+  - cntry --- Country
+  - essround --- ESS round
+  - pspwght --- Post-stratification weight // see [ESS survey weights](https://www.europeansocialsurvey.org/methodology/ess_methodology/data_processing_archiving/weighting.html)
+  - inw_date --- Date of interview // various ESS inw* variables
+- _Party information_
+  - prtv --- Party voted for in last national election // aggregated ESS IDs
+  - prtv_name --- Party voted for in last national election // party name
+  - first_ess_id --- unique ESS party ID used in Party Facts
+
+
+## Summary statistics {#sec-sum-stats}
+
+```{r}
+ess_cabinet <-
+  ess_cabinet_raw |>
+  select(essround, cntry, idno, cabinet = cabinet_party)
+
+ess_lm <-
+  ess_raw |>
+  left_join(ess_cabinet) |>
+  mutate(
+    across(c(lrscale, stfdem), \(.x) as.integer(.x) - 1),
+    cabinet = case_when(
+      cabinet == 1 ~ "Yes",
+      cabinet == 0 ~ "No",
+      .default = NA
+    ),
+    cabinet = as.factor(cabinet) |> fct_rev()
+  ) |>
+  filter(!all(is.na(cabinet)), .by = c(cntry, essround))
+
+ess_lm |>
+  select(-idno) |>
+  skim() |>
+  round_numeric_variables(2)
+```
+
+
+## Multi-level models (ML)
+
+Model variables preparation
+
+- removing outliers _age_ (99% quantile)
+- selecting only variables used in models
+- removing incomplete observations
+- centering of continuous variables (_age, education, left-right_)
+
+```{r}
+# quantile(ess_lm$eduyrs, probs = c(0, 0.5, 0.9, 0.95, 0.99, 0.999), na.rm = TRUE)
+eduyrs_remove <- quantile(ess_lm$eduyrs, probs = 0.99, na.rm = TRUE)
+
+ess_lm_c <-
+  ess_lm |>
+  filter(eduyrs < eduyrs_remove) |>
+  select(stfdem, cabinet, gndr, eduyrs, agea, lrscale, cntry, essround, pspwght) |>
+  na.omit() |>
+  mutate(
+    essround_cntry = paste(essround, cntry),
+    across(c(agea, eduyrs, lrscale),
+      \(.x) scale(.x, scale = FALSE) |> as.vector(),
+      .names = "{.col}_c"
+    )
+  )
+
+plot_ggpredict <- function(model, plot_terms) {
+  ggpredict(model, terms = plot_terms) |>
+    plot(show.title = FALSE, show.legend = FALSE)
+}
+
+ml_formula <- "stfdem ~ gndr +  cabinet*eduyrs_c + cabinet*poly(agea_c, 2) + cabinet*poly(lrscale_c, 2)"
+```
+
+### Three ML models {#sec-ml-models}
+
+Multi-level models with quadric terms and interactions. Structure of models:
+
+- Model 1 (ML-1) --- ESS-Round/country and country
+- Model 2 (ML-2) --- ESS-Round and country
+- Model 3 (ML-3) --- country
+
+Visualization of results in @fig-ml1-effects and  @fig-ml1-effects-article -- see variable information in @sec-sum-stats
+
+```{r}
+ml1 <- lmer(
+  as.formula(glue("{ml_formula} + (1 | cntry/essround_cntry)")),
+  weights = pspwght,
+  data = ess_lm_c
+)
+
+ml2 <- lmer(
+  as.formula(glue("{ml_formula} + (1 | essround) + (1 | cntry)")),
+  weights = pspwght,
+  data = ess_lm_c
+)
+
+ml3 <- lmer(
+  as.formula(glue("{ml_formula} + (1 | cntry)")),
+  weights = pspwght,
+  data = ess_lm_c
+)
+```
+
+```{r}
+models <- list("ML-1" = ml1, "ML-2" = ml2, "ML-3" = ml3)
+
+if (knitr::is_html_output()) {
+  modelsummary(models)
+} else {
+  modelsummary(models, output = "markdown")
+}
+```
+
+Analysis of variance (ANOVA) models and refitting with Maximum Likelihood instead of Restricted Maximum Likelihood.
+
+```{r}
+anova(ml1, ml2, ml3) |>
+  tidy() |>
+  arrange(term)
+```
+
+
+### Effects plot ML-1
+
+Effects plot Multi-Level Model 1 (ML-1, see @sec-ml-models)
+
+::: {.content-visible when-format="pdf"}
+see @fig-ml1-effects and @fig-ml1-effects-article
+:::
+
+```{r}
+#| label: fig-ml1-effects
+#| fig-cap: "Effects plot (95% CIs) --- Satisfaction with democracy"
+
+plot_ggpredict(ml1, c("lrscale_c [all]", "cabinet")) +
+  plot_ggpredict(ml1, c("agea_c [all]", "cabinet")) +
+  plot_ggpredict(ml1, c("eduyrs_c [all]", "cabinet"))
+```
+
+```{r}
+pl_dt_lr <- ggpredict(ml1, c("lrscale_c [all]", "cabinet"))
+pl_dt_edu <- ggpredict(ml1, c("eduyrs_c [all]", "cabinet"))
+pl_dt_age <- ggpredict(ml1, c("agea_c [all]"))
+```
+
+
+```{r}
+#| label: fig-ml1-effects-article
+#| fig-cap: "Effects plot (95% CIs) --- Satisfaction with democracy // Article version"
+
+add_plot_layers <- function(pl, var_name = "x") {
+  pl +
+    geom_hline(yintercept = 5, color = "grey", size = 0.5) +
+    geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1) +
+    scale_y_continuous(limits = c(3.5, 7)) +
+    labs(x = var_name, y = "") +
+    theme_minimal()
+}
+
+color_values <- c("Yes" = "#E41A1C", "No" = "#377EB8")
+
+pl_lr <-
+  ggplot(pl_dt_lr, aes(x, predicted, fill = group)) |>
+  add_plot_layers("left-right") +
+  geom_vline(xintercept = median(ess_lm_c$lrscale_c), color = "grey", size = 0.5, linetype = "dashed") +
+  geom_line(aes(colour = group)) +
+  guides(color = "none", fill = "none") +
+  scale_color_manual(values = color_values) +
+  scale_fill_manual(values = color_values)
+
+pl_edu <-
+  ggplot(pl_dt_edu, aes(x, predicted, fill = group)) |>
+  add_plot_layers("education") +
+  geom_vline(xintercept = median(ess_lm_c$eduyrs_c), color = "grey", size = 0.5, linetype = "dashed") +
+  geom_line(aes(colour = group)) +
+  guides(color = "none", fill = "none") +
+  scale_color_manual(values = color_values) +
+  scale_fill_manual(values = color_values)
+
+pl_age <-
+  ggplot(pl_dt_age, aes(x, predicted)) |>
+  add_plot_layers("age") +
+  geom_vline(xintercept = median(ess_lm_c$agea_c), color = "grey", size = 0.5, linetype = "dashed") +
+  geom_line()
+
+pl <- pl_lr + pl_edu + pl_age
+
+ggsave("figures-tables/figure-2_ml-model-effects.png", pl, width = 9, height = 6, dpi = 300)
+pl
+```
+
+
+## Linear effects (ML)
+
+Multi-level model with linear terms and no interactions.
+
+Visualization of results in @fig-ml-le-coeffs (standardized coefficients) and @fig-ml-linear-effects (effects) -- see variable information in @sec-sum-stats
+
+
+```{r}
+ml_le <- lmer(
+  "stfdem ~ cabinet + gndr + eduyrs_c + agea_c + lrscale_c + (1 | cntry/essround_cntry)",
+  weights = pspwght,
+  data = ess_lm_c
+)
+```
+
+
+```{r}
+ml_le |>
+  tidy() |>
+  kable(digits = 3)
+```
+
+
+```{r}
+#| label: fig-ml-le-coeffs
+#| fig-cap: "Standardized coefficients (95% CIs)-- Linear effects model"
+
+cm <- c(
+  "cabinetNo" = "Opposition voter",
+  "eduyrs_c" = "Education years",
+  "gndrFemale" = "Women",
+  "agea_c" = "Age",
+  "lrscale_c" = "Left-right"
+)
+
+# parameters::parameters(ml1, standardize = "refit")
+# modelplot(ml_le)
+
+modelplot(ml_le, coef_map = rev(cm), standardize = "refit") +
+  labs(x = "")
+```
+
+```{r}
+#| label: fig-ml-linear-effects
+#| fig-cap: "Linear effects plot (95% CIs) --- Satisfaction with democracy"
+
+plot_ggpredict(ml_le, c("lrscale_c [all]", "cabinet")) +
+  plot_ggpredict(ml_le, c("agea_c [all]", "cabinet")) +
+  plot_ggpredict(ml_le, c("eduyrs_c [all]", "cabinet"))
+```
+
+
+## Fixed effects model
+
+Fixed effects model with quadric terms and interactions.
+
+Visualization of results in @fig-fe-model and variable information in @sec-sum-stats
+
+```{r}
+m_fe <-
+  lm_robust(as.formula(glue("{ml_formula} + cntry + factor(essround)")),
+    weights = pspwght,
+    data = ess_lm_c
+  )
+```
+
+```{r}
+m_fe |>
+  tidy() |>
+  mutate(term = str_remove_all(term, "poly\\(|, 2\\)1") |> str_replace(fixed(", 2)2"), "^2")) |>
+  filter(!str_starts(term, "cntry|factor")) |>
+  select(-df, -outcome) |>
+  kable(digits = 3)
+```
+
+Fixed effects for countries (_"cnty"_) and ESS rounds (_"essround"_) not shown.
+
+```{r}
+m_fe |>
+  glance() |>
+  kable(digits = 2)
+```
+
+```{r}
+#| label: fig-fe-model
+#| fig-cap: "Fixed effects model (95% CIs) --- Satisfaction with democracy"
+#| fig-asp: 0.618
+
+plot_ggpredict(m_fe, c("lrscale_c [all]", "cabinet")) +
+  plot_ggpredict(m_fe, c("agea_c [all]", "cabinet")) +
+  plot_ggpredict(m_fe, c("eduyrs_c [all]", "cabinet"))
+```
+
+
+## Share covered
+
+<!--- Share covered notebook section -->
+
+```{r}
+id_select <- "parlgov_id" # "ches_id" + "parlgov_id"
+ess_check <- ess_cabinet_raw # ess_raw + ess_cabinet_raw
+tbl_file_name <- "figures-tables/table-2b_parlgov-coverage.csv"
+```
+
+{{< include _share-covered.qmd >}}

@@ -1,0 +1,202 @@
+# prt* party variables
+
+Information on ESS party IDs from “party-voted-for” (prtc\*) and “party-close-to” (prtc\*) questions – see also section "ESS party data structure" in manuscript.
+
+```{r}
+library(conflicted)
+
+library(tidyverse)
+conflicts_prefer(dplyr::filter, .quiet = TRUE)
+
+library(knitr)
+library(reactable)
+```
+
+```{r}
+# ESS datasets in rds and with selected variables created in "01-ess-prt.R"
+ess9_raw <- read_rds("data/ess-waves/ESS9e03_1.rds")
+ess_raw <- read_rds("data/02-ess-select.rds")
+
+# long format ESS prt* variables
+prt_raw <- read_rds("data/01-ess-prt.rds")
+
+# prtv* (single per country) and prtc* ESS variable with ESS numeric ID
+prtvc_raw <- read_rds("data/01-ess-prtv-prtc.rds")
+```
+
+
+## prt\* variables
+
+All ESS rounds include two types of survey questions with party information.
+
+- __prtv\*__ --- "Party voted for in last national election, [country]?"
+- __prtc\*__ --- "Which party feel closer to, [country]?"
+
+```{r}
+ess_raw |>
+  summarise(
+    n = n(),
+    n_countries = n_distinct(cntry),
+    n_prtv = n_distinct(prtv),
+    n_prtc = n_distinct(prtc),
+    .by = "essround"
+  ) |>
+  arrange(essround)
+```
+
+
+## ESS-9 example
+
+We use the ESS-9 integrated file to describe the structure of the _prt\*_ variables in ESS data files.
+
+Each ESS round uses country level variables for the __prt\*__ variables (e.g. _prtvtcat_ --- party-voted-for Austria ESS-9).
+
+These __prt\*__ variables include the following elements:
+
+- starting with __prt__
+- indicating the type of _prt_ variable
+  - __v__ --- "party-voted-for"
+  - __c__ --- "party-close-to"
+- two character __country__ code
+- electoral tier number for Germany and Lithuania (_prtv\*_ only)
+
+
+```{r}
+ess9_prt <-
+  ess9_raw |>
+  select(cntry, starts_with(c("prtv", "prtc"))) |>
+  pivot_longer(!cntry, names_to = "variable", values_to = "party") |>
+  na.omit()
+
+ess9_prt_n <-
+  ess9_prt |>
+  summarise(
+    cntry = first(cntry),
+    responses = n(),
+    parties = paste(unique(party) |> as.character() |> sort(), collapse = ", "),
+    .by = c(cntry, variable)
+  )
+```
+
+ESS-9 __prt\*__ variables by country
+
+::: {.content-visible when-format="pdf"}
+Examples for the first four countries in ESS-9
+:::
+
+```{r}
+tbl_out <-
+  ess9_prt_n |>
+  summarise(
+    n = n(),
+    variables = paste(variable |> sort(), collapse = ", "),
+    .by = cntry
+  )
+
+if (knitr::is_html_output()) {
+  tbl_out |>
+    reactable(searchable = TRUE, striped = TRUE)
+} else {
+  tbl_out |>
+    slice((1:5))
+}
+```
+
+Germany and Lithuania include multiple _prtv\*_ variables asking for voting decisions in each electoral tier. These variables include a number for the tier in the variable name.
+
+We use the national tier (_"prtvede2", "prtvblt1"_) as the primary "party-voted-for" variable.
+
+```{r}
+ess9_prt |>
+  filter(str_detect(variable, "\\d")) |>
+  distinct(cntry, variable) |>
+  arrange(cntry, variable)
+```
+
+
+## prtv\* ID differences
+
+ESS may use different IDs across ESS rounds
+
+```{r ids-rounds}
+prtv_ids <-
+  prt_raw |>
+  mutate(party = as.character(party)) |>
+  filter(
+    str_detect(variable, "^prtv"), # party-voted-for variable
+    !str_detect(variable, "de1|lt[23]") # national vote only DEU and LTU
+  ) |>
+  select(-idno, -variable, -ess_id) |>
+  distinct() |>
+  arrange(party_id) |>
+  pivot_wider(
+    names_from = party_id,
+    values_from = party,
+    names_prefix = "id_"
+  ) |>
+  arrange(cntry, essround)
+```
+
+```{r}
+#| eval: false
+#| echo: false
+reactable(prtv_ids, searchable = TRUE, striped = TRUE)
+```
+
+e.g. Netherlands _prtv\*_ rounds 1–10
+
+```{r nld-example}
+prtv_ids |>
+  filter(cntry == "NL") |>
+  select(essround, id_4:id_6)
+```
+
+
+## prtv\*/prtc\* ID differences
+
+ESS party IDs may differ between the _prtv\*_ and _prtc\*_ variables.
+
+```{r}
+tbl <-
+  prtvc_raw |>
+  mutate(
+    prtv_party_id = str_extract(prtv, "\\d+-\\d+") |> str_remove("\\d+-") |> as.integer(),
+    prtc_party_id = str_extract(prtc, "\\d+-\\d+") |> str_remove("\\d+-") |> as.integer()
+  ) |>
+  filter(prtv_party_id == prtc_party_id & prtv_party != prtc_party) |>
+  select(cntry, essround, party_id = prtv_party_id, prtv_party, prtc_party) |>
+  distinct() |>
+  arrange(essround, cntry, prtv_party)
+```
+
+```{r}
+#| eval: false
+#| echo: false
+reactable(tbl, searchable = TRUE, striped = TRUE)
+```
+
+Examples from six countries in ESS-9
+
+```{r}
+tbl |>
+  filter(essround == 9) |>
+  slice(2, 5, 18, 27, 29, 38)
+```
+
+```{r}
+tbl_v <-
+  prtvc_raw |>
+  filter(str_detect(prtv, "FI-(8|9|10)-10-v")) |>
+  distinct(essround, prtv, prtv_party)
+
+tbl_c <-
+  prtvc_raw |>
+  filter(str_detect(prtc, "FI-(8|9|10)-10-c")) |>
+  distinct(essround, prtc, prtc_party)
+
+tbl_out <-
+  tbl_v |>
+  left_join(tbl_c)
+
+write_csv(tbl_out, "figures-tables/table-1_ess-incoherence.csv")
+```

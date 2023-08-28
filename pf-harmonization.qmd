@@ -1,0 +1,58 @@
+# Party Facts harmonization
+
+Information on Party Facts ESS party IDs harmonization – see also sections "Linking data sets with Party Facts" and "ESS party data structure" in manuscript.
+
+```{r}
+library(conflicted)
+
+library(tidyverse)
+conflicts_prefer(dplyr::filter, .quiet = TRUE)
+
+library(knitr)
+library(reactable)
+```
+
+
+```{r}
+pf_raw <- read_csv("data-raw/pf-essprtv.csv")
+
+pf <- pf_raw |> rename(cntry = ess_cntry)
+```
+
+## ESS party IDs
+
+Party Facts (PF) harmonizes ESS party IDs by creating a unique ESS party id (_"first_ess_id"_) for all ESS rounds. — see [PF GitHub // _essprtv_](https://github.com/hdigital/partyfactsdata/tree/main/import/essprtv)
+
+```{r}
+pf |>
+  mutate(prt_variable = str_extract(ess_variable, "[:alpha:]{4}")) |>
+  summarise(
+    n_ess_parties = n_distinct(ess_id),
+    n_harmonized = n_distinct(first_ess_id),
+    .by = prt_variable
+  )
+```
+
+
+## Parties per country
+
+```{r}
+tbl <-
+  pf |>
+  summarise(
+    n_essrounds = n_distinct(essround),
+    n_ess_parties = n(),
+    n_harmonized = n_distinct(first_ess_id),
+    .by = cntry
+  ) |>
+  arrange(cntry)
+```
+
+Number of ESS party IDs and harmonized IDs in ESS rounds by country (_prtv_ and _prtc_)
+```{r}
+if (knitr::is_html_output()) {
+  tbl |> reactable(searchable = TRUE, striped = TRUE)
+} else {
+  tbl
+}
+```

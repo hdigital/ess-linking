@@ -1,0 +1,38 @@
+# ESS party linking {.unnumbered}
+
+Code and supplementary information for: Paul Bederke and Holger Döring. 2023. “Harmonizing and Linking Party Information: The ESS as an Example of Complex Data Linking.”
+
+::: {.content-visible when-format="pdf"}
+_Note_ — pdf-version of notebook, see also html-version with Tidyverse-R code used to create content
+:::
+
+```{r}
+#| fig-height: 5.5
+
+library(tidyverse)
+
+prt_raw <- read_rds("data/01-ess-prtv-prtc.rds")
+
+pl_dt <-
+  prt_raw |>
+  filter(!is.na(prtv)) |>
+  distinct(cntry, essround, prtv) |>
+  count(cntry, essround, sort = TRUE) |>
+  mutate(
+    cntry = factor(cntry) |> fct_rev(),
+    essround = factor(essround)
+  )
+
+pl <-
+  ggplot(pl_dt, aes(y = cntry, x = essround, size = n)) +
+  geom_point(colour = "darkgrey") +
+  scale_y_discrete(name = "") +
+  scale_x_discrete(name = "ESS Round") +
+  scale_size_continuous(name = "n (prtv*)") +
+  theme_bw() +
+  theme(axis.ticks.y = element_blank()) +
+  guides(color = FALSE, scale = "none")
+
+ggsave("figures-tables/figure-1_ess-rounds.png", pl, width = 9, height = 6, dpi = 300)
+pl
+```

@@ -1,0 +1,203 @@
+# CHES left-right validation
+
+ESS linking example – see also sections "Expert survey validation" and "Performance of Party Facts linking" in manuscript.
+
+```{r}
+library(conflicted)
+
+library(tidyverse)
+conflicts_prefer(dplyr::filter, .quiet = TRUE)
+library(glue)
+library(knitr)
+
+library(ggforce) # violin plots
+library(reactable)
+```
+
+```{r}
+ches_raw <- haven::read_dta("data-raw/ches-1999-2019_CHES_dataset_meansv3-td4m.dta")
+ess_raw <- read_rds("data/05-ess-ches.rds")
+ess_all_raw <- read_rds("data/02-ess-select.rds")
+```
+
+## CHES information
+
+[Chapel Hill Expert Survey](https://www.chesdata.eu/) (CHES) series
+
+```{r}
+ches_raw |>
+  summarise(
+    countries = n_distinct(country),
+    parties = n(),
+    .by = year
+  )
+```
+
+
+## CHES and ESS
+
+Number of countries and parties that are included in ESS and CHES for an ESS round.
+
+```{r}
+ess_raw |>
+  summarize(
+    year = first(year),
+    countries_n = n_distinct(cntry),
+    parties_n = n_distinct(prtv),
+    ches_year = first(ches_year),
+    ches_parties_n = n_distinct(ches_id),
+    .by = c(essround)
+  ) |>
+  arrange(essround)
+```
+
+Overview country coverage ESS and CHES trend file
+
+- __ess_cntry__ --- number of countries in ESS round
+- __ches_cntry__ --- number of ESS round countries in CHES
+- __ches_missing__ --- names of ESS round countries not in CHES
+
+```{r}
+cntry_ches_n <-
+  ess_raw |>
+  summarise(ches_cntry = n_distinct(cntry), .by = essround)
+
+cntry_ches_none <-
+  ess_all_raw |>
+  distinct(essround, cntry) |>
+  anti_join(ess_raw |> distinct(essround, cntry)) |>
+  arrange(cntry) |>
+  summarise(ches_missing = paste0(cntry, collapse = ", "), .by = essround)
+
+ess_all_raw |>
+  summarise(ess_cntry = n_distinct(cntry), .by = essround) |>
+  left_join(cntry_ches_n) |>
+  left_join(cntry_ches_none) |>
+  arrange(essround)
+```
+
+## Country-year correlation
+
+```{r}
+ess_party <-
+  ess_raw |>
+  filter(!is.na(prtv)) |>
+  summarise(
+    lr_mean = mean(lrscale, na.rm = TRUE),
+    lr_sd = sd(lrscale, na.rm = TRUE),
+    lr_n = n(),
+    ches_lr = first(ches_lr),
+    .by = c(cntry, year, prtv, prtv_party, ches_year),
+  )
+```
+
+Country-year correlations for ESS and CHES left-right positions in each ESS round with at least 3 parties and 10 responses per party in a country.
+
+ESS left-right party positions are calculated as mean values of __lrscale__ variables for respondents that voted for the party (__prtv\*__).
+
+- __lrscale__ --- self-placement on left right scale // ESS rounds
+- __prtv\*__ --- "party-voted-for" in last national election // ESS rounds
+- __ches_lr__ --- left-right party position // CHES trend file
+  - lrgen --- "position of the party in YEAR in terms of its overall ideological stance." // CHES trendfile
+
+```{r}
+ess_party_filter <-
+  ess_party |>
+  na.omit() |>
+  filter(lr_n >= 10) |>
+  mutate(n = n(), .by = c(cntry, year)) |>
+  filter(n >= 3)
+
+corr <-
+  ess_party_filter |>
+  summarise(
+    n_parties = first(n),
+    lr_corr = cor(lr_mean, ches_lr, use = "pairwise.complete.obs"),
+    .by = c(cntry, year, ches_year)
+  ) |>
+  arrange(cntry, year)
+
+# fivenum(corr$lr_corr)
+```
+
+The table summarizes the country-year correlations by providing 0%, 10%, 25%, 50%, 75%, and 100% quantiles. The results are visualized in @fig-corr-violin.
+
+```{r}
+tbl_out <-
+  corr |>
+  summarise(
+    p0 = quantile(lr_corr, 0),
+    p10 = quantile(lr_corr, 0.10),
+    p25 = quantile(lr_corr, 0.25),
+    p50 = quantile(lr_corr, 0.50),
+    p75 = quantile(lr_corr, 0.75),
+    p100 = quantile(lr_corr, 1),
+    .by = year
+  ) |>
+  mutate(across(p0:p100, \(x) round(x, 2))) |>
+  rename(ess_year = year) |>
+  arrange(ess_year)
+
+write_csv(tbl_out, "figures-tables/table-3_ches-validation.csv")
+tbl_out
+```
+
+::: {.content-visible when-format="html"}
+Country-year correlations by country // interactive table
+:::
+
+```{r}
+if (knitr::is_html_output()) {
+  corr |>
+    mutate(lr_corr = round(lr_corr, 2)) |>
+    reactable(searchable = TRUE, striped = TRUE)
+}
+```
+
+```{r}
+ro_2008 <-
+  ess_party |>
+  filter(lr_n >= 10) |>
+  filter(cntry == "RO", year == 2008) |>
+  left_join(ess_raw |> distinct(prtv, prtv_party)) |>
+  mutate(lr_mean = round(lr_mean, 2)) |>
+  select(-lr_sd)
+
+ro_2008_cor <-
+  cor(ro_2008$lr_mean, ro_2008$ches_lr, use = "pairwise.complete.obs") |>
+  round(2)
+```
+
+Lowest country-year correlation (`r ro_2008_cor`) for ESS Romania 2008.
+
+```{r}
+ro_2008 |>
+  arrange(prtv) |>
+  select(cntry, year, prtv, prtv_party, lr_n, lr_mean, ches_year, ches_lr)
+```
+
+```{r}
+#| label: fig-corr-violin
+#| fig-cap: "Violin plot for country wise correlations ( < 0.5 removed)"
+
+corr |>
+  filter(lr_corr >= 0.5) |>
+  mutate(year = factor(year)) |>
+  ggplot(aes(year, lr_corr)) +
+  geom_violin(colour = "darkgrey") +
+  geom_sina() +
+  theme_minimal()
+```
+
+
+## Share covered
+
+<!--- Share covered notebook section -->
+
+```{r}
+id_select <- "ches_id" # "ches_id" + "parlgov_id"
+ess_check <- ess_raw # ess_raw + ess_cabinet_raw
+tbl_file_name <- "figures-tables/table-2a_ches-coverage.csv"
+```
+
+{{< include _share-covered.qmd >}}

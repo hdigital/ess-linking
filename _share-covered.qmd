@@ -1,0 +1,74 @@
+<!--- Notebook section for CHES and ParlGov share covered (used with include) -->
+<!--- objects "id_select", "ess_check", "tbl_file_name" defined in notebooks --->
+
+We calculate the share of matches for the "party-voted-for" (*prtv*) question. Excluded from the calculation are instances of *other*, *independent*, and *technical* (see [Party Facts codebook](https://github.com/hdigital/partyfactsdata/blob/main/codebook/codebook.md)).
+
+```{r}
+link_table_technical <-
+  read_rds("data/03-party-facts-links-technical.rds")
+
+prtv <-
+  ess_check |>
+  left_join(link_table_technical, by = c("prtv" = "ess_id")) |>
+  select(cntry, essround, prtv, prtv_party, all_of(id_select), partyfacts_name, technical) |>
+  filter(!is.na(prtv)) |>
+  mutate(is_match = if_else(is.na(.data[[id_select]]), 0, 1))
+
+prtv_match <-
+  prtv |>
+  filter(technical != 7 & technical != 8 & technical != 12 | is.na(technical)) |>
+  summarise(
+    prvt_n = n(),
+    is_match = first(is_match),
+    .by = c(cntry, essround, prtv, prtv_party)
+  )
+
+prtv_share <-
+  prtv_match |>
+  summarise(
+    share_match = (sum(prvt_n * is_match) * 100 / sum(prvt_n)) |> round(1),
+    .by = c(cntry, essround)
+  )
+```
+
+The table summarizes the share of party matches across all countries and ESS rounds.
+
+```{r}
+tbl_out <-
+  prtv_share |>
+  reframe(
+    enframe(
+      quantile(share_match, c(0, 0.1, 0.25, 0.5, 0.75, 1)),
+      "quantile", "share_match"
+    )
+  ) |>
+  mutate(share_match = round(share_match, 1))
+
+write_csv(tbl_out, tbl_file_name)
+tbl_out
+```
+
+The share of matched parties is weighted by the number of "party-voted-for" responses and is calculated for each country in every ESS round.
+
+The next table summarizes the country level share of party matches for ESS rounds with data set matches.
+
+```{r}
+tbl_out <-
+  prtv_share |>
+  summarise(
+    min = min(share_match),
+    median = median(share_match) |> round(1),
+    max = max(share_match),
+    ess_rounds = n_distinct(essround),
+    .by = cntry
+  ) |>
+  filter(max > 0) |>
+  arrange(min, median)
+
+if (knitr::is_html_output()) {
+  tbl_out |>
+    reactable(searchable = TRUE, striped = TRUE)
+} else {
+  tbl_out
+}
+```

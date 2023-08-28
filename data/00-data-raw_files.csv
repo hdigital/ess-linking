@@ -1,0 +1,17 @@
+data_file,size,hash
+data-raw/ESS10.dta, 34.77M,533b89b4ebda6f58d5aef181b2c42c9b
+data-raw/ESS10SC.dta, 18.33M,975db0389d844e25aa669c3d2da4f7ac
+data-raw/ESS1e06_6.dta, 26.78M,c61f508eb0f5b60e038be2d5793a9f4d
+data-raw/ESS2e03_6.dta, 34.03M,1ddea926b393d16417856e1135b29d67
+data-raw/ESS3e03_7.dta, 27.35M,f3922c40bf5f37d0d5f1f1553a180898
+data-raw/ESS4e04_5.dta, 45.55M,f9455c929aee50fd3ab71a9ec9fd51a4
+data-raw/ESS5e03_4.dta, 48.62M,88c340e6a63d88bd7b1e42a2ded830de
+data-raw/ESS6e02_5.dta, 47.57M,eb508dfaec9f896851db7cc0de1cc1e9
+data-raw/ESS7e02_2.dta, 32.64M,0d413a5724618ff7ec373a48edbf5f0e
+data-raw/ESS8e02_2.dta, 33.1M,b1ab85d0a22aa17306e908095269e4dd
+data-raw/ESS9e03_1.dta, 42.57M,536f541f23064fd0b46ed7fd8b1e932a
+data-raw/ches-1999-2019_CHES_dataset_meansv3-td4m.dta,697.42K,5bb4bda5d307e85fa2af047f97c15400
+data-raw/parlgov_view_cabinet.csv,  1.69M,3f4b78f254fc32cacc9b5dbb02827c99
+data-raw/pf-core-parties-csv.csv,  1.44M,d38aee3fcf9ffc131f5685a5b17124b1
+data-raw/pf-essprtv.csv,386.57K,c50b5b324c599ba77a8b07ceedb43466
+data-raw/pf-external-parties-csv.csv,  8.69M,113a037891d3667071af0c333f9e2fb5

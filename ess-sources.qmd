@@ -1,0 +1,77 @@
+# ESS data sources
+
+Information on ESS data sources used – see also section "ESS party data structure" in manuscript.
+
+```{r}
+library(tidyverse)
+library(knitr)
+```
+
+## ESS data sources
+
+ESS data sets from [europeansocialsurvey.org/data](https://www.europeansocialsurvey.org/data/)
+
+DOI references
+
+- ESS Round 1 – <https://doi.org/10.21338/ess1e06_6>
+- ESS Round 2 – <https://doi.org/10.21338/ess2e03_6>
+- ESS Round 3 – <https://doi.org/10.21338/ess3e03_7>
+- ESS Round 4 – <https://doi.org/10.21338/ess4e04_5>
+- ESS Round 5 – <https://doi.org/10.21338/ess5e03_4>
+- ESS Round 6 – <https://doi.org/10.18712/ess6e02_5>
+- ESS Round 7 – <https://doi.org/10.21338/ess7e02_2>
+- ESS Round 8 – <https://doi.org/10.21338/ess8e02_2>
+- ESS Round 9 – <https://doi.org/10.21338/ess9e03_1>
+- ESS Round 10 – <https://doi.org/10.21338/ess10e03_1>
+- ESS Round 10 – <https://doi.org/10.21338/ess10sce03_0> (self-completion)
+
+Data files are imported into R with [readstata13](https://sjewo.github.io/readstata13/)
+
+```{r}
+tibble(ESS_file = fs::dir_ls("data-raw/", glob = "*ESS*.dta")) |>
+  mutate(
+    Round = str_extract(ESS_file, "\\d+") |> as.integer(),
+    hash = rlang::hash_file(ESS_file),
+    ESS_file = str_remove(ESS_file, "data-raw/")
+  ) |>
+  relocate(Round, .before = ESS_file) |>
+  arrange(Round) |>
+  kable()
+```
+
+_Note_ --- The ESS-10 is released with two data files, one for the standard face-to-face interviews and another file for countries with self-completion mode due to the COVID-19 restrictions.
+
+## ESS rounds
+
+Summary of ESS rounds
+
+- __n__ -- number of responses
+- __n\_countries__ -- number of countries in ESS round
+- __inw\_first__ and __inw\_last__ -- first and last interview
+
+```{r}
+ess_raw <- read_rds("data/02-ess-select.rds")
+
+ess_raw |>
+  summarise(
+    n = n(),
+    n_countries = n_distinct(cntry),
+    inw_first = min(year(inw_date), na.rm = TRUE),
+    inw_last = max(year(inw_date), na.rm = TRUE),
+    .by = "essround"
+  ) |>
+  arrange(essround)
+```
+
+
+## Countries
+
+```{r}
+ess_raw |>
+  summarise(
+    n = n_distinct(cntry),
+    countries = paste(unique(sort(cntry)), collapse = ", "),
+    .by = "essround"
+  ) |>
+  arrange(essround)
+```

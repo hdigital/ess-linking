@@ -1,0 +1,488 @@
+- The lockfile is already up to date.
+Styling  16  files:
+ _share-covered.qmd        ✔ 
+ 00-get-data-raw.R         ✔ 
+ 01-ess-prt.R              ✔ 
+ 02-ess-select.R           ✔ 
+ 03-party-facts-links.R    ✔ 
+ 04-ches_lrgen.R           ✔ 
+ 05-ches-ess_lr.R          ✔ 
+ 06-parlgov-cabinets.R     ✔ 
+ 07-parlgov-ess_cabinets.R ✔ 
+ ches-lrscale.qmd          ✔ 
+ ess-sources.qmd           ✔ 
+ index.qmd                 ✔ 
+ parlgov-stfdem.qmd        ✔ 
+ pf-harmonization.qmd      ✔ 
+ prt-variables.qmd         ✔ 
+ z-run-all.R               ✔ 
+────────────────────────────────────────
+Status	Count	Legend 
+✔ 	16	File unchanged.
+ℹ 	0	File changed.
+✖ 	0	Styling threw an error.
+────────────────────────────────────────
+[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[1] "Download ESS data files manually with DOI url"
+ [1] "https://doi.org/10.21338/ess1e06_6"   
+ [2] "https://doi.org/10.21338/ess2e03_6"   
+ [3] "https://doi.org/10.21338/ess3e03_7"   
+ [4] "https://doi.org/10.21338/ess4e04_5"   
+ [5] "https://doi.org/10.21338/ess5e03_4"   
+ [6] "https://doi.org/10.21338/ess7e02_2"   
+ [7] "https://doi.org/10.21338/ess8e02_2"   
+ [8] "https://doi.org/10.21338/ess9e03_1"   
+ [9] "https://doi.org/10.21338/ess10e03_1"  
+[10] "https://doi.org/10.21338/ess10sce03_0"
+https://doi.org/10.18712/ess6e02_5
+[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[31m [32m■■■■                            [31m   9% |  ETA:  4m
+[39m[31m [32m■■■■■■                          [31m  18% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■                       [31m  27% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■                    [31m  36% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■                 [31m  45% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■               [31m  55% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■            [31m  64% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■         [31m  73% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■      [31m  82% |  ETA: 48s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    [31m  91% |  ETA: 24s
+[39m[31mThere were 28 warnings (use warnings() to see them)
+[39m[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[31m [32m■■■■                            [31m   9% |  ETA: 25s
+[39m[31m [32m■■■■■■■■■                       [31m  27% |  ETA: 19s
+[39m[31m [32m■■■■■■■■■■■■                    [31m  36% |  ETA: 18s
+[39m[31m [32m■■■■■■■■■■■■■■■                 [31m  45% |  ETA: 15s
+[39m[31m [32m■■■■■■■■■■■■■■■■■               [31m  55% |  ETA: 13s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■            [31m  64% |  ETA: 10s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■         [31m  73% |  ETA:  8s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■      [31m  82% |  ETA:  5s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    [31m  91% |  ETA:  3s
+[39m[31mWarning message:
+[1m[22mThere was 1 warning in `mutate()`.
+[1m[22m[36mℹ[31m In argument: `date = ymd(value)`.
+Caused by warning:
+[33m![31m  706368 failed to parse. 
+[39m[31m[1m[22mJoining with `by = join_by(cntry, essround, idno)`
+[39m[31m[1m[22mJoining with `by = join_by(cntry, essround, idno)`
+[39m[31m[1m[22mJoining with `by = join_by(cntry, essround, idno)`
+[39m[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[31m[1mRows: [22m[34m7172[31m [1mColumns: [22m[34m17[31m
+[39m[31m[36m──[31m [1mColumn specification[22m [36m────────────────────────────────────────────────────────[31m
+[1mDelimiter:[22m ","
+[31mchr[31m  (8): country, name_short, name, name_english, name_other, wikipedia, de...
+[32mdbl[31m  (6): partyfacts_id, technical, year_first, year_last, share, share_year
+[33mlgl[31m  (1): new
+[34mdttm[31m (2): created, modified
+[39m[31m
+[36mℹ[31m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[31m Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[39m[31m[1mRows: [22m[34m44855[31m [1mColumns: [22m[34m17[31m
+[39m[31m[36m──[31m [1mColumn specification[22m [36m────────────────────────────────────────────────────────[31m
+[1mDelimiter:[22m ","
+[31mchr[31m  (8): country, dataset_key, dataset_party_id, name_short, name, name_eng...
+[32mdbl[31m  (6): year_first, year_last, share, share_year, external_id, partyfacts_id
+[34mdttm[31m (3): created, modified, linked
+[39m[31m
+[36mℹ[31m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[31m Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Warning message:
+[1m[22mOne or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+[39m[31m[1mRows: [22m[34m6283[31m [1mColumns: [22m[34m8[31m
+[39m[31m[36m──[31m [1mColumn specification[22m [36m────────────────────────────────────────────────────────[31m
+[1mDelimiter:[22m ","
+[31mchr[31m (6): ess_cntry, ess_variable, ess_party, ess_id, first_ess_id, country
+[32mdbl[31m (2): essround, ess_party_id
+[39m[31m
+[36mℹ[31m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[31m Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[39m[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[31mWarning message:
+In read.dta13(glue("data-raw/ches-{ches_data_file}")) : 
+   Factor codes of type double or float detected in variables
+
+   country, eastwest, eumember, family, govt,
+   eu_position, eu_ep, eu_fiscal, eu_intmark,
+   eu_employ, eu_agri, eu_cohesion, eu_environ,
+   eu_asylum, eu_foreign, eu_turkey, lrgen,
+   lrecon, galtan, mip_one, mip_two, mip_three
+
+   No labels have been assigned.
+   Set option 'nonint.factors = TRUE' to assign labels anyway.
+
+[39m[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[31m[1m[22mJoining with `by = join_by(ches_id, ches_year)`
+[39m[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[31m[1mRows: [22m[34m12574[31m [1mColumns: [22m[34m19[31m
+[39m[31m[36m──[31m [1mColumn specification[22m [36m────────────────────────────────────────────────────────[31m
+[1mDelimiter:[22m ","
+[31mchr[31m   (6): country_name_short, country_name, cabinet_name, party_name_short,...
+[32mdbl[31m  (11): caretaker, cabinet_party, prime_minister, seats, election_seats_t...
+[34mdate[31m  (2): election_date, start_date
+[39m[31m
+[36mℹ[31m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[31m Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[39m[31m[1m[22mJoining with `by = join_by(party_id)`
+[39m[31m[1m[22mJoining with `by = join_by(country)`
+[39m[31m[1m[22mJoining with `by = join_by(country, election_date, start_date)`
+[39m[31m[1m[22mJoining with `by = join_by(party_id)`
+[39m[38;5;246m# A tibble: 14 × 5[39m
+   country start_date cabinet_name  party_name_short first_ess_id
+   [3m[38;5;246m<chr>[39m[23m   [3m[38;5;246m<date>[39m[23m     [3m[38;5;246m<chr>[39m[23m         [3m[38;5;246m<chr>[39m[23m            [3m[38;5;246m<chr>[39m[23m       
+[38;5;250m 1[39m BEL     2014-10-11 Michel I      PA-PTB           BE-1-7-v    
+[38;5;250m 2[39m BEL     2014-10-11 Michel I      PA-PTB           BE-1-16-v   
+[38;5;250m 3[39m BEL     2019-05-26 Michel III    PA-PTB           BE-1-7-v    
+[38;5;250m 4[39m BEL     2019-05-26 Michel III    PA-PTB           BE-1-16-v   
+[38;5;250m 5[39m TUR     2002-11-16 Gul           SHP|CHP          TR-2-4-v    
+[38;5;250m 6[39m TUR     2002-11-16 Gul           SHP|CHP          TR-2-12-v   
+[38;5;250m 7[39m TUR     2007-08-29 Erdogan II    SHP|CHP          TR-2-4-v    
+[38;5;250m 8[39m TUR     2007-08-29 Erdogan II    SHP|CHP          TR-2-12-v   
+[38;5;250m 9[39m TUR     2011-07-06 Erdogan III   SHP|CHP          TR-2-4-v    
+[38;5;250m10[39m TUR     2011-07-06 Erdogan III   SHP|CHP          TR-2-12-v   
+[38;5;250m11[39m TUR     2015-11-30 Davutoglu III SHP|CHP          TR-2-4-v    
+[38;5;250m12[39m TUR     2015-11-30 Davutoglu III SHP|CHP          TR-2-12-v   
+[38;5;250m13[39m TUR     2018-07-09 Erdogan IV    SHP|CHP          TR-2-4-v    
+[38;5;250m14[39m TUR     2018-07-09 Erdogan IV    SHP|CHP          TR-2-12-v   
+[31mWarning message:
+Multiple matches for some cabinet parties 
+[39m[31m── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[31m [34mdplyr    [31m 1.1.2     [32m✔[31m [34mreadr    [31m 2.1.4
+[32m✔[31m [34mforcats  [31m 1.0.0     [32m✔[31m [34mstringr  [31m 1.5.0
+[32m✔[31m [34mggplot2  [31m 3.4.3     [32m✔[31m [34mtibble   [31m 3.2.1
+[32m✔[31m [34mlubridate[31m 1.9.2     [32m✔[31m [34mtidyr    [31m 1.3.0
+[32m✔[31m [34mpurrr    [31m 1.0.2     
+[39m[31m[1mRows: [22m[34m6283[31m [1mColumns: [22m[34m8[31m
+[39m[31m[36m──[31m [1mColumn specification[22m [36m────────────────────────────────────────────────────────[31m
+[1mDelimiter:[22m ","
+[31mchr[31m (6): ess_cntry, ess_variable, ess_party, ess_id, first_ess_id, country
+[32mdbl[31m (2): essround, ess_party_id
+[39m[31m
+[36mℹ[31m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[31m Specify the column types or set `show_col_types = FALSE` to quiet this message.
+[39m[31m[1m[22mJoining with `by = join_by(prtv)`
+[39m[31m[1m[22mJoining with `by = join_by(prtv)`
+[39m[38;5;246m# A tibble: 5 × 7[39m
+  cabinet_id cabinet_name cabinet_start cabinet_party parlgov_id parlgov_name
+       [3m[38;5;246m<dbl>[39m[23m [3m[38;5;246m<chr>[39m[23m        [3m[38;5;246m<date>[39m[23m                [3m[38;5;246m<dbl>[39m[23m      [3m[38;5;246m<dbl>[39m[23m [3m[38;5;246m<chr>[39m[23m       
+[38;5;250m1[39m       [4m1[24m528 Merkel V     2018-03-14                0       [4m2[24m253 AfD         
+[38;5;250m2[39m       [4m1[24m528 Merkel V     2018-03-14                0        772 B90/Gru     
+[38;5;250m3[39m       [4m1[24m528 Merkel V     2018-03-14                1       [4m1[24m727 CDU+CSU     
+[38;5;250m4[39m       [4m1[24m528 Merkel V     2018-03-14                0        543 FDP         
+[38;5;250m5[39m       [4m1[24m528 Merkel V     2018-03-14                1        558 SPD         
+[38;5;246m# ℹ 1 more variable: first_ess_id <chr>[39m
+[31m [32m■                               [31m   1% |  ETA:  4m
+[39m[31m [32m■■                              [31m   3% |  ETA:  4m
+[39m[31m [32m■■                              [31m   4% |  ETA:  4m
+[39m[31m [32m■■■                             [31m   5% |  ETA:  4m
+[39m[31m [32m■■■                             [31m   6% |  ETA:  4m
+[39m[31m [32m■■■                             [31m   8% |  ETA:  4m
+[39m[31m [32m■■■■                            [31m   9% |  ETA:  4m
+[39m[31m [32m■■■■                            [31m  10% |  ETA:  4m
+[39m[31m [32m■■■■                            [31m  11% |  ETA:  4m
+[39m[31m [32m■■■■■                           [31m  13% |  ETA:  3m
+[39m[31m [32m■■■■■                           [31m  14% |  ETA:  4m
+[39m[31m [32m■■■■■                           [31m  15% |  ETA:  3m
+[39m[31m [32m■■■■■■                          [31m  16% |  ETA:  3m
+[39m[31m [32m■■■■■■                          [31m  17% |  ETA:  3m
+[39m[31m [32m■■■■■■■                         [31m  19% |  ETA:  3m
+[39m[31m [32m■■■■■■■                         [31m  20% |  ETA:  3m
+[39m[31m [32m■■■■■■■                         [31m  21% |  ETA:  3m
+[39m[31m [32m■■■■■■■■                        [31m  22% |  ETA:  3m
+[39m[31m [32m■■■■■■■■                        [31m  23% |  ETA:  3m
+[39m[31m [32m■■■■■■■■                        [31m  25% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■                       [31m  26% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■                       [31m  27% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■                       [31m  28% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■                      [31m  30% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■                      [31m  31% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■■                     [31m  32% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■■                     [31m  33% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■■                     [31m  35% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■■■                    [31m  36% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■■■                    [31m  37% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■■■■                   [31m  38% |  ETA:  3m
+[39m[31m [32m■■■■■■■■■■■■■                   [31m  40% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■                   [31m  41% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■                  [31m  42% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■                  [31m  43% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■                  [31m  44% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■                 [31m  45% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■                 [31m  46% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■                 [31m  48% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■                [31m  49% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■                [31m  50% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■                [31m  51% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■               [31m  53% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■               [31m  54% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■              [31m  55% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■              [31m  56% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■              [31m  58% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■             [31m  59% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■             [31m  60% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■             [31m  62% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■            [31m  63% |  ETA:  2m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■            [31m  64% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■           [31m  65% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■           [31m  67% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■           [31m  68% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■          [31m  69% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■          [31m  70% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■          [31m  72% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■         [31m  73% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■         [31m  74% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■        [31m  75% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■        [31m  77% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■        [31m  78% |  ETA:  1m
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■       [31m  79% |  ETA: 50s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■       [31m  81% |  ETA: 47s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■      [31m  82% |  ETA: 44s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■      [31m  83% |  ETA: 40s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■      [31m  85% |  ETA: 37s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■     [31m  86% |  ETA: 34s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■     [31m  87% |  ETA: 31s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    [31m  88% |  ETA: 28s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    [31m  90% |  ETA: 25s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    [31m  91% |  ETA: 21s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   [31m  92% |  ETA: 18s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   [31m  94% |  ETA: 15s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  [31m  95% |  ETA: 12s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  [31m  96% |  ETA:  9s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  [31m  97% |  ETA:  6s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ [31m  99% |  ETA:  3s
+[39m[31m [32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ [31m 100% |  ETA:  0s
+[39m[31m[1m[22mJoining with `by = join_by(cntry, inw_date, first_ess_id)`
+[39m$`00-get-data-raw.R`
+$`00-get-data-raw.R`$status
+[1] 0
+
+$`00-get-data-raw.R`$stdout
+[1] "[1] \"Download ESS data files manually with DOI url\"\n [1] \"https://doi.org/10.21338/ess1e06_6\"   \n [2] \"https://doi.org/10.21338/ess2e03_6\"   \n [3] \"https://doi.org/10.21338/ess3e03_7\"   \n [4] \"https://doi.org/10.21338/ess4e04_5\"   \n [5] \"https://doi.org/10.21338/ess5e03_4\"   \n [6] \"https://doi.org/10.21338/ess7e02_2\"   \n [7] \"https://doi.org/10.21338/ess8e02_2\"   \n [8] \"https://doi.org/10.21338/ess9e03_1\"   \n [9] \"https://doi.org/10.21338/ess10e03_1\"  \n[10] \"https://doi.org/10.21338/ess10sce03_0\"\nhttps://doi.org/10.18712/ess6e02_5\n"
+
+$`00-get-data-raw.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \n"
+
+$`00-get-data-raw.R`$timeout
+[1] FALSE
+
+$`00-get-data-raw.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "00-get-data-raw.R"           
+
+
+$`01-ess-prt.R`
+$`01-ess-prt.R`$status
+[1] 0
+
+$`01-ess-prt.R`$stdout
+[1] ""
+
+$`01-ess-prt.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \n \033[32m■■■■                            \033[39m   9% |  ETA:  4m\n \033[32m■■■■■■                          \033[39m  18% |  ETA:  3m\n \033[32m■■■■■■■■■                       \033[39m  27% |  ETA:  2m\n \033[32m■■■■■■■■■■■■                    \033[39m  36% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■                 \033[39m  45% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■               \033[39m  55% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■■■            \033[39m  64% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■         \033[39m  73% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■      \033[39m  82% |  ETA: 48s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    \033[39m  91% |  ETA: 24s\nThere were 28 warnings (use warnings() to see them)\n"
+
+$`01-ess-prt.R`$timeout
+[1] FALSE
+
+$`01-ess-prt.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "01-ess-prt.R"                
+
+
+$`02-ess-select.R`
+$`02-ess-select.R`$status
+[1] 0
+
+$`02-ess-select.R`$stdout
+[1] ""
+
+$`02-ess-select.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \n \033[32m■■■■                            \033[39m   9% |  ETA: 25s\n \033[32m■■■■■■■■■                       \033[39m  27% |  ETA: 19s\n \033[32m■■■■■■■■■■■■                    \033[39m  36% |  ETA: 18s\n \033[32m■■■■■■■■■■■■■■■                 \033[39m  45% |  ETA: 15s\n \033[32m■■■■■■■■■■■■■■■■■               \033[39m  55% |  ETA: 13s\n \033[32m■■■■■■■■■■■■■■■■■■■■            \033[39m  64% |  ETA: 10s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■         \033[39m  73% |  ETA:  8s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■      \033[39m  82% |  ETA:  5s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    \033[39m  91% |  ETA:  3s\nWarning message:\n\033[1m\033[22mThere was 1 warning in `mutate()`.\n\033[1m\033[22m\033[36mℹ\033[39m In argument: `date = ymd(value)`.\nCaused by warning:\n\033[33m!\033[39m  706368 failed to parse. \n\033[1m\033[22mJoining with `by = join_by(cntry, essround, idno)`\n\033[1m\033[22mJoining with `by = join_by(cntry, essround, idno)`\n\033[1m\033[22mJoining with `by = join_by(cntry, essround, idno)`\n"
+
+$`02-ess-select.R`$timeout
+[1] FALSE
+
+$`02-ess-select.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "02-ess-select.R"             
+
+
+$`03-party-facts-links.R`
+$`03-party-facts-links.R`$status
+[1] 0
+
+$`03-party-facts-links.R`$stdout
+[1] ""
+
+$`03-party-facts-links.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \n\033[1mRows: \033[22m\033[34m7172\033[39m \033[1mColumns: \033[22m\033[34m17\033[39m\n\033[36m──\033[39m \033[1mColumn specification\033[22m \033[36m────────────────────────────────────────────────────────\033[39m\n\033[1mDelimiter:\033[22m \",\"\n\033[31mchr\033[39m  (8): country, name_short, name, name_english, name_other, wikipedia, de...\n\033[32mdbl\033[39m  (6): partyfacts_id, technical, year_first, year_last, share, share_year\n\033[33mlgl\033[39m  (1): new\n\033[34mdttm\033[39m (2): created, modified\n\n\033[36mℹ\033[39m Use `spec()` to retrieve the full column specification for this data.\n\033[36mℹ\033[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\033[1mRows: \033[22m\033[34m44855\033[39m \033[1mColumns: \033[22m\033[34m17\033[39m\n\033[36m──\033[39m \033[1mColumn specification\033[22m \033[36m────────────────────────────────────────────────────────\033[39m\n\033[1mDelimiter:\033[22m \",\"\n\033[31mchr\033[39m  (8): country, dataset_key, dataset_party_id, name_short, name, name_eng...\n\033[32mdbl\033[39m  (6): year_first, year_last, share, share_year, external_id, partyfacts_id\n\033[34mdttm\033[39m (3): created, modified, linked\n\n\033[36mℹ\033[39m Use `spec()` to retrieve the full column specification for this data.\n\033[36mℹ\033[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.\nWarning message:\n\033[1m\033[22mOne or more parsing issues, call `problems()` on your data frame for details,\ne.g.:\n  dat <- vroom(...)\n  problems(dat) \n\033[1mRows: \033[22m\033[34m6283\033[39m \033[1mColumns: \033[22m\033[34m8\033[39m\n\033[36m──\033[39m \033[1mColumn specification\033[22m \033[36m────────────────────────────────────────────────────────\033[39m\n\033[1mDelimiter:\033[22m \",\"\n\033[31mchr\033[39m (6): ess_cntry, ess_variable, ess_party, ess_id, first_ess_id, country\n\033[32mdbl\033[39m (2): essround, ess_party_id\n\n\033[36mℹ\033[39m Use `spec()` to retrieve the full column specification for this data.\n\033[36mℹ\033[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.\n"
+
+$`03-party-facts-links.R`$timeout
+[1] FALSE
+
+$`03-party-facts-links.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "03-party-facts-links.R"      
+
+
+$`04-ches_lrgen.R`
+$`04-ches_lrgen.R`$status
+[1] 0
+
+$`04-ches_lrgen.R`$stdout
+[1] ""
+
+$`04-ches_lrgen.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \nWarning message:\nIn read.dta13(glue(\"data-raw/ches-{ches_data_file}\")) : \n   Factor codes of type double or float detected in variables\n\n   country, eastwest, eumember, family, govt,\n   eu_position, eu_ep, eu_fiscal, eu_intmark,\n   eu_employ, eu_agri, eu_cohesion, eu_environ,\n   eu_asylum, eu_foreign, eu_turkey, lrgen,\n   lrecon, galtan, mip_one, mip_two, mip_three\n\n   No labels have been assigned.\n   Set option 'nonint.factors = TRUE' to assign labels anyway.\n\n"
+
+$`04-ches_lrgen.R`$timeout
+[1] FALSE
+
+$`04-ches_lrgen.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "04-ches_lrgen.R"             
+
+
+$`05-ches-ess_lr.R`
+$`05-ches-ess_lr.R`$status
+[1] 0
+
+$`05-ches-ess_lr.R`$stdout
+[1] ""
+
+$`05-ches-ess_lr.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \n\033[1m\033[22mJoining with `by = join_by(ches_id, ches_year)`\n"
+
+$`05-ches-ess_lr.R`$timeout
+[1] FALSE
+
+$`05-ches-ess_lr.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "05-ches-ess_lr.R"            
+
+
+$`06-parlgov-cabinets.R`
+$`06-parlgov-cabinets.R`$status
+[1] 0
+
+$`06-parlgov-cabinets.R`$stdout
+[1] "\033[38;5;246m# A tibble: 14 × 5\033[39m\n   country start_date cabinet_name  party_name_short first_ess_id\n   \033[3m\033[38;5;246m<chr>\033[39m\033[23m   \033[3m\033[38;5;246m<date>\033[39m\033[23m     \033[3m\033[38;5;246m<chr>\033[39m\033[23m         \033[3m\033[38;5;246m<chr>\033[39m\033[23m            \033[3m\033[38;5;246m<chr>\033[39m\033[23m       \n\033[38;5;250m 1\033[39m BEL     2014-10-11 Michel I      PA-PTB           BE-1-7-v    \n\033[38;5;250m 2\033[39m BEL     2014-10-11 Michel I      PA-PTB           BE-1-16-v   \n\033[38;5;250m 3\033[39m BEL     2019-05-26 Michel III    PA-PTB           BE-1-7-v    \n\033[38;5;250m 4\033[39m BEL     2019-05-26 Michel III    PA-PTB           BE-1-16-v   \n\033[38;5;250m 5\033[39m TUR     2002-11-16 Gul           SHP|CHP          TR-2-4-v    \n\033[38;5;250m 6\033[39m TUR     2002-11-16 Gul           SHP|CHP          TR-2-12-v   \n\033[38;5;250m 7\033[39m TUR     2007-08-29 Erdogan II    SHP|CHP          TR-2-4-v    \n\033[38;5;250m 8\033[39m TUR     2007-08-29 Erdogan II    SHP|CHP          TR-2-12-v   \n\033[38;5;250m 9\033[39m TUR     2011-07-06 Erdogan III   SHP|CHP          TR-2-4-v    \n\033[38;5;250m10\033[39m TUR     2011-07-06 Erdogan III   SHP|CHP          TR-2-12-v   \n\033[38;5;250m11\033[39m TUR     2015-11-30 Davutoglu III SHP|CHP          TR-2-4-v    \n\033[38;5;250m12\033[39m TUR     2015-11-30 Davutoglu III SHP|CHP          TR-2-12-v   \n\033[38;5;250m13\033[39m TUR     2018-07-09 Erdogan IV    SHP|CHP          TR-2-4-v    \n\033[38;5;250m14\033[39m TUR     2018-07-09 Erdogan IV    SHP|CHP          TR-2-12-v   \n"
+
+$`06-parlgov-cabinets.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \n\033[1mRows: \033[22m\033[34m12574\033[39m \033[1mColumns: \033[22m\033[34m19\033[39m\n\033[36m──\033[39m \033[1mColumn specification\033[22m \033[36m────────────────────────────────────────────────────────\033[39m\n\033[1mDelimiter:\033[22m \",\"\n\033[31mchr\033[39m   (6): country_name_short, country_name, cabinet_name, party_name_short,...\n\033[32mdbl\033[39m  (11): caretaker, cabinet_party, prime_minister, seats, election_seats_t...\n\033[34mdate\033[39m  (2): election_date, start_date\n\n\033[36mℹ\033[39m Use `spec()` to retrieve the full column specification for this data.\n\033[36mℹ\033[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\033[1m\033[22mJoining with `by = join_by(party_id)`\n\033[1m\033[22mJoining with `by = join_by(country)`\n\033[1m\033[22mJoining with `by = join_by(country, election_date, start_date)`\n\033[1m\033[22mJoining with `by = join_by(party_id)`\nWarning message:\nMultiple matches for some cabinet parties \n"
+
+$`06-parlgov-cabinets.R`$timeout
+[1] FALSE
+
+$`06-parlgov-cabinets.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "06-parlgov-cabinets.R"       
+
+
+$`07-parlgov-ess_cabinets.R`
+$`07-parlgov-ess_cabinets.R`$status
+[1] 0
+
+$`07-parlgov-ess_cabinets.R`$stdout
+[1] "\033[38;5;246m# A tibble: 5 × 7\033[39m\n  cabinet_id cabinet_name cabinet_start cabinet_party parlgov_id parlgov_name\n       \033[3m\033[38;5;246m<dbl>\033[39m\033[23m \033[3m\033[38;5;246m<chr>\033[39m\033[23m        \033[3m\033[38;5;246m<date>\033[39m\033[23m                \033[3m\033[38;5;246m<dbl>\033[39m\033[23m      \033[3m\033[38;5;246m<dbl>\033[39m\033[23m \033[3m\033[38;5;246m<chr>\033[39m\033[23m       \n\033[38;5;250m1\033[39m       \033[4m1\033[24m528 Merkel V     2018-03-14                0       \033[4m2\033[24m253 AfD         \n\033[38;5;250m2\033[39m       \033[4m1\033[24m528 Merkel V     2018-03-14                0        772 B90/Gru     \n\033[38;5;250m3\033[39m       \033[4m1\033[24m528 Merkel V     2018-03-14                1       \033[4m1\033[24m727 CDU+CSU     \n\033[38;5;250m4\033[39m       \033[4m1\033[24m528 Merkel V     2018-03-14                0        543 FDP         \n\033[38;5;250m5\033[39m       \033[4m1\033[24m528 Merkel V     2018-03-14                1        558 SPD         \n\033[38;5;246m# ℹ 1 more variable: first_ess_id <chr>\033[39m\n"
+
+$`07-parlgov-ess_cabinets.R`$stderr
+[1] "── \033[1mAttaching core tidyverse packages\033[22m ──────────────────────── tidyverse 2.0.0 ──\n\033[32m✔\033[39m \033[34mdplyr    \033[39m 1.1.2     \033[32m✔\033[39m \033[34mreadr    \033[39m 2.1.4\n\033[32m✔\033[39m \033[34mforcats  \033[39m 1.0.0     \033[32m✔\033[39m \033[34mstringr  \033[39m 1.5.0\n\033[32m✔\033[39m \033[34mggplot2  \033[39m 3.4.3     \033[32m✔\033[39m \033[34mtibble   \033[39m 3.2.1\n\033[32m✔\033[39m \033[34mlubridate\033[39m 1.9.2     \033[32m✔\033[39m \033[34mtidyr    \033[39m 1.3.0\n\033[32m✔\033[39m \033[34mpurrr    \033[39m 1.0.2     \n\033[1mRows: \033[22m\033[34m6283\033[39m \033[1mColumns: \033[22m\033[34m8\033[39m\n\033[36m──\033[39m \033[1mColumn specification\033[22m \033[36m────────────────────────────────────────────────────────\033[39m\n\033[1mDelimiter:\033[22m \",\"\n\033[31mchr\033[39m (6): ess_cntry, ess_variable, ess_party, ess_id, first_ess_id, country\n\033[32mdbl\033[39m (2): essround, ess_party_id\n\n\033[36mℹ\033[39m Use `spec()` to retrieve the full column specification for this data.\n\033[36mℹ\033[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\033[1m\033[22mJoining with `by = join_by(prtv)`\n\033[1m\033[22mJoining with `by = join_by(prtv)`\n \033[32m■                               \033[39m   1% |  ETA:  4m\n \033[32m■■                              \033[39m   3% |  ETA:  4m\n \033[32m■■                              \033[39m   4% |  ETA:  4m\n \033[32m■■■                             \033[39m   5% |  ETA:  4m\n \033[32m■■■                             \033[39m   6% |  ETA:  4m\n \033[32m■■■                             \033[39m   8% |  ETA:  4m\n \033[32m■■■■                            \033[39m   9% |  ETA:  4m\n \033[32m■■■■                            \033[39m  10% |  ETA:  4m\n \033[32m■■■■                            \033[39m  11% |  ETA:  4m\n \033[32m■■■■■                           \033[39m  13% |  ETA:  3m\n \033[32m■■■■■                           \033[39m  14% |  ETA:  4m\n \033[32m■■■■■                           \033[39m  15% |  ETA:  3m\n \033[32m■■■■■■                          \033[39m  16% |  ETA:  3m\n \033[32m■■■■■■                          \033[39m  17% |  ETA:  3m\n \033[32m■■■■■■■                         \033[39m  19% |  ETA:  3m\n \033[32m■■■■■■■                         \033[39m  20% |  ETA:  3m\n \033[32m■■■■■■■                         \033[39m  21% |  ETA:  3m\n \033[32m■■■■■■■■                        \033[39m  22% |  ETA:  3m\n \033[32m■■■■■■■■                        \033[39m  23% |  ETA:  3m\n \033[32m■■■■■■■■                        \033[39m  25% |  ETA:  3m\n \033[32m■■■■■■■■■                       \033[39m  26% |  ETA:  3m\n \033[32m■■■■■■■■■                       \033[39m  27% |  ETA:  3m\n \033[32m■■■■■■■■■                       \033[39m  28% |  ETA:  3m\n \033[32m■■■■■■■■■■                      \033[39m  30% |  ETA:  3m\n \033[32m■■■■■■■■■■                      \033[39m  31% |  ETA:  3m\n \033[32m■■■■■■■■■■■                     \033[39m  32% |  ETA:  3m\n \033[32m■■■■■■■■■■■                     \033[39m  33% |  ETA:  3m\n \033[32m■■■■■■■■■■■                     \033[39m  35% |  ETA:  3m\n \033[32m■■■■■■■■■■■■                    \033[39m  36% |  ETA:  3m\n \033[32m■■■■■■■■■■■■                    \033[39m  37% |  ETA:  3m\n \033[32m■■■■■■■■■■■■■                   \033[39m  38% |  ETA:  3m\n \033[32m■■■■■■■■■■■■■                   \033[39m  40% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■                   \033[39m  41% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■                  \033[39m  42% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■                  \033[39m  43% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■                  \033[39m  44% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■                 \033[39m  45% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■                 \033[39m  46% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■                 \033[39m  48% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■                \033[39m  49% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■                \033[39m  50% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■                \033[39m  51% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■               \033[39m  53% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■               \033[39m  54% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■              \033[39m  55% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■              \033[39m  56% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■              \033[39m  58% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■■             \033[39m  59% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■■             \033[39m  60% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■■             \033[39m  62% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■■■            \033[39m  63% |  ETA:  2m\n \033[32m■■■■■■■■■■■■■■■■■■■■            \033[39m  64% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■           \033[39m  65% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■           \033[39m  67% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■           \033[39m  68% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■          \033[39m  69% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■          \033[39m  70% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■          \033[39m  72% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■         \033[39m  73% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■         \033[39m  74% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■        \033[39m  75% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■        \033[39m  77% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■        \033[39m  78% |  ETA:  1m\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■       \033[39m  79% |  ETA: 50s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■       \033[39m  81% |  ETA: 47s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■      \033[39m  82% |  ETA: 44s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■      \033[39m  83% |  ETA: 40s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■      \033[39m  85% |  ETA: 37s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■     \033[39m  86% |  ETA: 34s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■     \033[39m  87% |  ETA: 31s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    \033[39m  88% |  ETA: 28s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    \033[39m  90% |  ETA: 25s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■    \033[39m  91% |  ETA: 21s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   \033[39m  92% |  ETA: 18s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   \033[39m  94% |  ETA: 15s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  \033[39m  95% |  ETA: 12s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  \033[39m  96% |  ETA:  9s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  \033[39m  97% |  ETA:  6s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ \033[39m  99% |  ETA:  3s\n \033[32m■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ \033[39m 100% |  ETA:  0s\n\033[1m\033[22mJoining with `by = join_by(cntry, inw_date, first_ess_id)`\n"
+
+$`07-parlgov-ess_cabinets.R`$timeout
+[1] FALSE
+
+$`07-parlgov-ess_cabinets.R`$command
+[1] "/usr/local/lib/R/bin/Rscript" "07-parlgov-ess_cabinets.R"   
+
+
+data/00-data-raw_files.csv              data/01-ess-prt.rds                     
+data/01-ess-prtv-prtc.rds               data/02-ess-select.rds                  
+data/03-party-facts-links-technical.rds data/03-party-facts-links.rds           
+data/04-ches-lrgen.rds                  data/05-check-ids_ess-ches.csv          
+data/05-ess-ches.rds                    data/06-parlgov-cabinets.rds            
+data/07-parlgov-ess_cabinets.rds        [01;34mdata/ess-waves[0m                          
+[[1]]
+_book
+
+[[2]]
+_freeze
+
+── [1mAttaching core tidyverse packages[22m ──────────────────────── tidyverse 2.0.0 ──
+[32m✔[39m [34mdplyr    [39m 1.1.2     [32m✔[39m [34mreadr    [39m 2.1.4
+[32m✔[39m [34mforcats  [39m 1.0.0     [32m✔[39m [34mstringr  [39m 1.5.0
+[32m✔[39m [34mggplot2  [39m 3.4.3     [32m✔[39m [34mtibble   [39m 3.2.1
+[32m✔[39m [34mlubridate[39m 1.9.2     [32m✔[39m [34mtidyr    [39m 1.3.0
+── [1mConflicts[22m ────────────────────────────────────────── tidyverse_conflicts() ──
+[31m✖[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
+[31m✖[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
+[36mℹ[39m Use the conflicted package ([3m[34m<http://conflicted.r-lib.org/>[39m[23m) to force all conflicts to become errors
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 22.04.3 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.20.so;  LAPACK version 3.10.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   dplyr_1.1.2    
+ [5] readr_2.1.4     tidyr_1.3.0     tibble_3.2.1    ggplot2_3.4.3  
+ [9] tidyverse_2.0.0 purrr_1.0.2     fs_1.6.3        callr_3.7.3    
+
+loaded via a namespace (and not attached):
+ [1] styler_1.10.1      utf8_1.2.3         generics_0.1.3     renv_1.0.2        
+ [5] xml2_1.3.5         stringi_1.7.12     hms_1.1.3          digest_0.6.33     
+ [9] magrittr_2.0.3     timechange_0.2.0   grid_4.3.1         R.oo_1.25.0       
+[13] R.cache_0.16.0     rprojroot_2.0.3    processx_3.8.2     R.utils_2.12.2    
+[17] backports_1.4.1    ps_1.7.5           fansi_1.0.4        scales_1.2.1      
+[21] lintr_3.1.0        lazyeval_0.2.2     cli_3.6.1          rlang_1.1.1       
+[25] crayon_1.5.2       R.methodsS3_1.8.2  munsell_0.5.0      remotes_2.4.2.1   
+[29] withr_2.5.0        yaml_2.3.7         tools_4.3.1        tzdb_0.4.0        
+[33] colorspace_2.1-0   vctrs_0.6.3        cyclocomp_1.1.0    R6_2.5.1          
+[37] lifecycle_1.0.3    pkgconfig_2.0.3    desc_1.4.2         rex_1.2.1         
+[41] pillar_1.9.0       gtable_0.3.4       data.table_1.14.8  glue_1.6.2        
+[45] xfun_0.40          tidyselect_1.2.0   rstudioapi_0.15.0  knitr_1.43        
+[49] compiler_4.3.1     xmlparsedata_1.0.5

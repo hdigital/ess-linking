@@ -1,0 +1,36 @@
+project:
+  type: book
+
+book:
+  title: "ESS party linking"
+  author: "Holger Döring and Paul Bederke"
+  date: last-modified
+  description: 'Appendix for "Harmonizing and linking ESS party variables" by Paul Bederke and Holger Döring.'
+  chapters:
+    - index.qmd
+    - ess-sources.qmd
+    - prt-variables.qmd
+    - pf-harmonization.qmd
+    - ches-lrscale.qmd
+    - parlgov-stfdem.qmd
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+    df-print: kable
+  pdf:
+    documentclass: scrreprt
+    echo: false
+    include-in-header:
+      - text: |
+          \usepackage{float}
+    df-print: paged
+    fig-pos: "H"
+  # docx:
+  #   echo: false
+
+execute:
+  freeze: auto
+  messages: true
+  warning: false
