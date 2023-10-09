@@ -1,6 +1,6 @@
 # ESS parties
 
-Code and supplementary information for: Paul Bederke and Holger Döring. 2023. “Harmonizing and Linking Party Information: The ESS as an Example of Complex Data Linking.” — see [manuscript](Bederke_Doering_2023.pdf)
+Code and supplementary information for: Paul Bederke and Holger Döring. 2023. “Harmonizing and Linking Party Information: The ESS as an Example of Complex Data Linking.” doi: [10.5281/zenodo.8421233](https://doi.org/10.5281/zenodo.8421233) — see [manuscript](Bederke_Doering_2023.pdf)
 
 ## Notes
 
