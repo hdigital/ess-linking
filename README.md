@@ -41,3 +41,7 @@ docker-compose up -d  # start container in detached mode
 
 docker-compose down   # shut down container
 ```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/) – Copyright (c) 2023 Paul Bederke and Holger Döring
