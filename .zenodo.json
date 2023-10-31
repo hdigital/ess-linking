@@ -1,0 +1,27 @@
+{
+  "title": "Harmonizing and linking party information: The ESS as an example of complex data linking",
+  "description": "R code and notebooks with examples for linking party data in the European Social Survey (ESS)",
+  "creators": [
+    {
+      "affiliation": "University of Konstanz, Germany",
+      "name": "Bederke, Paul",
+      "orcid": "0000-0001-7555-8656"
+    },
+    {
+      "affiliation": "GESIS – Leibniz Institute for the Social Sciences, Germany",
+      "name": "Döring, Holger",
+      "orcid": "0000-0002-6616-8805"
+    }
+  ],
+  "keywords": [
+    "comparative politics",
+    "data management",
+    "survey data",
+    "voting behavior",
+    "expert surveys",
+    "validation"
+  ],
+  "license": {
+    "id": "mit"
+  }
+}
