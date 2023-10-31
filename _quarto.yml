@@ -5,7 +5,8 @@ book:
   title: "ESS party linking"
   author: "Holger Döring and Paul Bederke"
   date: last-modified
-  description: 'Appendix for "Harmonizing and linking ESS party variables" by Paul Bederke and Holger Döring.'
+  description: 'Appendix for "Harmonizing and linking ESS party information" by Paul Bederke and Holger Döring.'
+  doi: "10.5281/zenodo.8421232"
   chapters:
     - index.qmd
     - ess-sources.qmd

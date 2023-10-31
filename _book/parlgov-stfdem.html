@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Appendix for “Harmonizing and linking ESS party variables” by Paul Bederke and Holger Döring.">
+<meta name="description" content="Appendix for “Harmonizing and linking ESS party information” by Paul Bederke and Holger Döring.">
 
 <title>ESS party linking - 5&nbsp; ParlGov losers’ consent</title>
 <style>
@@ -96,6 +96,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="site_libs/core-js-2.5.3/shim.min.js"></script>
 <script src="site_libs/react-17.0.0/react.min.js"></script>
 <script src="site_libs/react-17.0.0/react-dom.min.js"></script>
@@ -331,311 +333,630 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round_numeric_variables</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Data summary</caption>
+
+<table style="width: auto;" class="table table-condensed">
+<caption>
+Data summary
+</caption>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Name</td>
-<td style="text-align: left;">select(ess_lm, -idno)</td>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+select(ess_lm, -idno)
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Number of rows</td>
-<td style="text-align: left;">433599</td>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+433599
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">14</td>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+14
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">_______________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Column type frequency:</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">3</td>
+<tr>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+3
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Date</td>
-<td style="text-align: left;">1</td>
+<tr>
+<td style="text-align:left;">
+Date
+</td>
+<td style="text-align:left;">
+1
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">factor</td>
-<td style="text-align: left;">4</td>
+<tr>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+4
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">6</td>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+6
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">________________________</td>
-<td style="text-align: left;"></td>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Group variables</td>
-<td style="text-align: left;">None</td>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
 </tr>
 </tbody>
+
 </table>
 <p><strong>Variable type: character</strong></p>
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 13%">
-<col style="width: 19%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 12%">
-<col style="width: 15%">
-</colgroup>
+
+<table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: left;">n_missing</th>
-<th style="text-align: left;">complete_rate</th>
-<th style="text-align: left;">min</th>
-<th style="text-align: left;">max</th>
-<th style="text-align: left;">empty</th>
-<th style="text-align: left;">n_unique</th>
-<th style="text-align: left;">whitespace</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:left;">
+n_missing
+</th>
+<th style="text-align:left;">
+complete_rate
+</th>
+<th style="text-align:left;">
+min
+</th>
+<th style="text-align:left;">
+max
+</th>
+<th style="text-align:left;">
+empty
+</th>
+<th style="text-align:left;">
+n_unique
+</th>
+<th style="text-align:left;">
+whitespace
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">cntry</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">32</td>
-<td style="text-align: left;">0</td>
+<tr>
+<td style="text-align:left;">
+cntry
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.00
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">prtv</td>
-<td style="text-align: left;">171780</td>
-<td style="text-align: left;">0.60</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">14</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">2704</td>
-<td style="text-align: left;">0</td>
+<tr>
+<td style="text-align:left;">
+prtv
+</td>
+<td style="text-align:left;">
+171780
+</td>
+<td style="text-align:left;">
+0.60
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+2704
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">prtc</td>
-<td style="text-align: left;">240202</td>
-<td style="text-align: left;">0.45</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">2642</td>
-<td style="text-align: left;">0</td>
+<tr>
+<td style="text-align:left;">
+prtc
+</td>
+<td style="text-align:left;">
+240202
+</td>
+<td style="text-align:left;">
+0.45
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+2642
+</td>
+<td style="text-align:left;">
+0
+</td>
 </tr>
 </tbody>
+
 </table>
 <p><strong>Variable type: Date</strong></p>
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 12%">
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 11%">
-</colgroup>
+
+<table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: left;">n_missing</th>
-<th style="text-align: left;">complete_rate</th>
-<th style="text-align: left;">min</th>
-<th style="text-align: left;">max</th>
-<th style="text-align: left;">median</th>
-<th style="text-align: left;">n_unique</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:left;">
+n_missing
+</th>
+<th style="text-align:left;">
+complete_rate
+</th>
+<th style="text-align:left;">
+min
+</th>
+<th style="text-align:left;">
+max
+</th>
+<th style="text-align:left;">
+median
+</th>
+<th style="text-align:left;">
+n_unique
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">inw_date</td>
-<td style="text-align: left;">912</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">2002-01-14</td>
-<td style="text-align: left;">2022-09-02</td>
-<td style="text-align: left;">2011-06-03</td>
-<td style="text-align: left;">4827</td>
+<tr>
+<td style="text-align:left;">
+inw_date
+</td>
+<td style="text-align:left;">
+912
+</td>
+<td style="text-align:left;">
+1.00
+</td>
+<td style="text-align:left;">
+2002-01-14
+</td>
+<td style="text-align:left;">
+2022-09-02
+</td>
+<td style="text-align:left;">
+2011-06-03
+</td>
+<td style="text-align:left;">
+4827
+</td>
 </tr>
 </tbody>
+
 </table>
 <p><strong>Variable type: factor</strong></p>
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 10%">
-<col style="width: 14%">
-<col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 43%">
-</colgroup>
+
+<table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: left;">n_missing</th>
-<th style="text-align: left;">complete_rate</th>
-<th style="text-align: left;">ordered</th>
-<th style="text-align: left;">n_unique</th>
-<th style="text-align: left;">top_counts</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:left;">
+n_missing
+</th>
+<th style="text-align:left;">
+complete_rate
+</th>
+<th style="text-align:left;">
+ordered
+</th>
+<th style="text-align:left;">
+n_unique
+</th>
+<th style="text-align:left;">
+top_counts
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">gndr</td>
-<td style="text-align: left;">331</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Fem: 231527, Mal: 201741, No : 0</td>
+<tr>
+<td style="text-align:left;">
+gndr
+</td>
+<td style="text-align:left;">
+331
+</td>
+<td style="text-align:left;">
+1.00
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Fem: 231527, Mal: 201741, No : 0
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">prtv_party</td>
-<td style="text-align: left;">171780</td>
-<td style="text-align: left;">0.60</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">888</td>
-<td style="text-align: left;">Lab: 6580, Con: 6077, Chr: 5660, Soc: 4972</td>
+<tr>
+<td style="text-align:left;">
+prtv_party
+</td>
+<td style="text-align:left;">
+171780
+</td>
+<td style="text-align:left;">
+0.60
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+888
+</td>
+<td style="text-align:left;">
+Lab: 6580, Con: 6077, Chr: 5660, Soc: 4972
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">prtc_party</td>
-<td style="text-align: left;">240202</td>
-<td style="text-align: left;">0.45</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">900</td>
-<td style="text-align: left;">Lab: 4949, Con: 4578, Chr: 4290, Soc: 3484</td>
+<tr>
+<td style="text-align:left;">
+prtc_party
+</td>
+<td style="text-align:left;">
+240202
+</td>
+<td style="text-align:left;">
+0.45
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+900
+</td>
+<td style="text-align:left;">
+Lab: 4949, Con: 4578, Chr: 4290, Soc: 3484
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">cabinet</td>
-<td style="text-align: left;">209306</td>
-<td style="text-align: left;">0.52</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Yes: 121092, No: 103201</td>
+<tr>
+<td style="text-align:left;">
+cabinet
+</td>
+<td style="text-align:left;">
+209306
+</td>
+<td style="text-align:left;">
+0.52
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Yes: 121092, No: 103201
+</td>
 </tr>
 </tbody>
+
 </table>
 <p><strong>Variable type: numeric</strong></p>
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 12%">
-<col style="width: 16%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 3%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 7%">
-</colgroup>
+
+<table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: left;">n_missing</th>
-<th style="text-align: left;">complete_rate</th>
-<th style="text-align: left;">mean</th>
-<th style="text-align: left;">sd</th>
-<th style="text-align: left;">p0</th>
-<th style="text-align: left;">p25</th>
-<th style="text-align: left;">p50</th>
-<th style="text-align: left;">p75</th>
-<th style="text-align: left;">p100</th>
-<th style="text-align: left;">hist</th>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:left;">
+n_missing
+</th>
+<th style="text-align:left;">
+complete_rate
+</th>
+<th style="text-align:left;">
+mean
+</th>
+<th style="text-align:left;">
+sd
+</th>
+<th style="text-align:left;">
+p0
+</th>
+<th style="text-align:left;">
+p25
+</th>
+<th style="text-align:left;">
+p50
+</th>
+<th style="text-align:left;">
+p75
+</th>
+<th style="text-align:left;">
+p100
+</th>
+<th style="text-align:left;">
+hist
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">essround</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">5.39</td>
-<td style="text-align: left;">2.80</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">3.0</td>
-<td style="text-align: left;">5.00</td>
-<td style="text-align: left;">8.00</td>
-<td style="text-align: left;">10.00</td>
-<td style="text-align: left;">▇▇▇▇▇</td>
+<tr>
+<td style="text-align:left;">
+essround
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.00
+</td>
+<td style="text-align:left;">
+5.39
+</td>
+<td style="text-align:left;">
+2.80
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3.0
+</td>
+<td style="text-align:left;">
+5.00
+</td>
+<td style="text-align:left;">
+8.00
+</td>
+<td style="text-align:left;">
+10.00
+</td>
+<td style="text-align:left;">
+▇▇▇▇▇
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">pspwght</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">1.01</td>
-<td style="text-align: left;">0.52</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.7</td>
-<td style="text-align: left;">0.93</td>
-<td style="text-align: left;">1.18</td>
-<td style="text-align: left;">6.85</td>
-<td style="text-align: left;">▇▁▁▁▁</td>
+<tr>
+<td style="text-align:left;">
+pspwght
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1.00
+</td>
+<td style="text-align:left;">
+1.01
+</td>
+<td style="text-align:left;">
+0.52
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0.7
+</td>
+<td style="text-align:left;">
+0.93
+</td>
+<td style="text-align:left;">
+1.18
+</td>
+<td style="text-align:left;">
+6.85
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">agea</td>
-<td style="text-align: left;">2155</td>
-<td style="text-align: left;">1.00</td>
-<td style="text-align: left;">48.49</td>
-<td style="text-align: left;">18.62</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: left;">33.0</td>
-<td style="text-align: left;">48.00</td>
-<td style="text-align: left;">63.00</td>
-<td style="text-align: left;">123.00</td>
-<td style="text-align: left;">▆▇▆▁▁</td>
+<tr>
+<td style="text-align:left;">
+agea
+</td>
+<td style="text-align:left;">
+2155
+</td>
+<td style="text-align:left;">
+1.00
+</td>
+<td style="text-align:left;">
+48.49
+</td>
+<td style="text-align:left;">
+18.62
+</td>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+33.0
+</td>
+<td style="text-align:left;">
+48.00
+</td>
+<td style="text-align:left;">
+63.00
+</td>
+<td style="text-align:left;">
+123.00
+</td>
+<td style="text-align:left;">
+▆▇▆▁▁
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">eduyrs</td>
-<td style="text-align: left;">5075</td>
-<td style="text-align: left;">0.99</td>
-<td style="text-align: left;">12.43</td>
-<td style="text-align: left;">4.13</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">10.0</td>
-<td style="text-align: left;">12.00</td>
-<td style="text-align: left;">15.00</td>
-<td style="text-align: left;">65.00</td>
-<td style="text-align: left;">▇▅▁▁▁</td>
+<tr>
+<td style="text-align:left;">
+eduyrs
+</td>
+<td style="text-align:left;">
+5075
+</td>
+<td style="text-align:left;">
+0.99
+</td>
+<td style="text-align:left;">
+12.43
+</td>
+<td style="text-align:left;">
+4.13
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+10.0
+</td>
+<td style="text-align:left;">
+12.00
+</td>
+<td style="text-align:left;">
+15.00
+</td>
+<td style="text-align:left;">
+65.00
+</td>
+<td style="text-align:left;">
+▇▅▁▁▁
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">lrscale</td>
-<td style="text-align: left;">55413</td>
-<td style="text-align: left;">0.87</td>
-<td style="text-align: left;">5.13</td>
-<td style="text-align: left;">2.23</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">4.0</td>
-<td style="text-align: left;">5.00</td>
-<td style="text-align: left;">7.00</td>
-<td style="text-align: left;">10.00</td>
-<td style="text-align: left;">▂▃▇▃▁</td>
+<tr>
+<td style="text-align:left;">
+lrscale
+</td>
+<td style="text-align:left;">
+55413
+</td>
+<td style="text-align:left;">
+0.87
+</td>
+<td style="text-align:left;">
+5.13
+</td>
+<td style="text-align:left;">
+2.23
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+4.0
+</td>
+<td style="text-align:left;">
+5.00
+</td>
+<td style="text-align:left;">
+7.00
+</td>
+<td style="text-align:left;">
+10.00
+</td>
+<td style="text-align:left;">
+▂▃▇▃▁
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">stfdem</td>
-<td style="text-align: left;">15516</td>
-<td style="text-align: left;">0.96</td>
-<td style="text-align: left;">5.28</td>
-<td style="text-align: left;">2.51</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">4.0</td>
-<td style="text-align: left;">5.00</td>
-<td style="text-align: left;">7.00</td>
-<td style="text-align: left;">10.00</td>
-<td style="text-align: left;">▅▅▇▇▂</td>
+<tr>
+<td style="text-align:left;">
+stfdem
+</td>
+<td style="text-align:left;">
+15516
+</td>
+<td style="text-align:left;">
+0.96
+</td>
+<td style="text-align:left;">
+5.28
+</td>
+<td style="text-align:left;">
+2.51
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+4.0
+</td>
+<td style="text-align:left;">
+5.00
+</td>
+<td style="text-align:left;">
+7.00
+</td>
+<td style="text-align:left;">
+10.00
+</td>
+<td style="text-align:left;">
+▅▅▇▇▂
+</td>
 </tr>
 </tbody>
+
 </table>
 </div>
 </div>
@@ -719,246 +1040,242 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">ML-1</th>
-<th style="text-align: right;">ML-2</th>
-<th style="text-align: right;">ML-3</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">ML-1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;ML-2</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;ML-3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">5.782</td>
-<td style="text-align: right;">5.790</td>
-<td style="text-align: right;">5.775</td>
+<td style="text-align: center;">5.782</td>
+<td style="text-align: center;">5.790</td>
+<td style="text-align: center;">5.775</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(0.169)</td>
-<td style="text-align: right;">(0.184)</td>
-<td style="text-align: right;">(0.172)</td>
+<td style="text-align: center;">(0.169)</td>
+<td style="text-align: center;">(0.184)</td>
+<td style="text-align: center;">(0.172)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gndrFemale</td>
-<td style="text-align: right;">-0.182</td>
-<td style="text-align: right;">-0.178</td>
-<td style="text-align: right;">-0.179</td>
+<td style="text-align: center;">−0.182</td>
+<td style="text-align: center;">−0.178</td>
+<td style="text-align: center;">−0.179</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(0.009)</td>
-<td style="text-align: right;">(0.010)</td>
-<td style="text-align: right;">(0.010)</td>
+<td style="text-align: center;">(0.009)</td>
+<td style="text-align: center;">(0.010)</td>
+<td style="text-align: center;">(0.010)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">cabinetNo</td>
-<td style="text-align: right;">-0.637</td>
-<td style="text-align: right;">-0.645</td>
-<td style="text-align: right;">-0.640</td>
+<td style="text-align: center;">−0.637</td>
+<td style="text-align: center;">−0.645</td>
+<td style="text-align: center;">−0.640</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(0.010)</td>
-<td style="text-align: right;">(0.010)</td>
-<td style="text-align: right;">(0.010)</td>
+<td style="text-align: center;">(0.010)</td>
+<td style="text-align: center;">(0.010)</td>
+<td style="text-align: center;">(0.010)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">eduyrs_c</td>
-<td style="text-align: right;">0.048</td>
-<td style="text-align: right;">0.045</td>
-<td style="text-align: right;">0.048</td>
+<td style="text-align: center;">0.048</td>
+<td style="text-align: center;">0.045</td>
+<td style="text-align: center;">0.048</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(0.002)</td>
-<td style="text-align: right;">(0.002)</td>
-<td style="text-align: right;">(0.002)</td>
+<td style="text-align: center;">(0.002)</td>
+<td style="text-align: center;">(0.002)</td>
+<td style="text-align: center;">(0.002)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">poly(agea_c, 2)1</td>
-<td style="text-align: right;">23.624</td>
-<td style="text-align: right;">21.075</td>
-<td style="text-align: right;">25.719</td>
+<td style="text-align: center;">23.624</td>
+<td style="text-align: center;">21.075</td>
+<td style="text-align: center;">25.719</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(3.151)</td>
-<td style="text-align: right;">(3.192)</td>
-<td style="text-align: right;">(3.189)</td>
+<td style="text-align: center;">(3.151)</td>
+<td style="text-align: center;">(3.192)</td>
+<td style="text-align: center;">(3.189)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">poly(agea_c, 2)2</td>
-<td style="text-align: right;">30.470</td>
-<td style="text-align: right;">30.403</td>
-<td style="text-align: right;">31.438</td>
+<td style="text-align: center;">30.470</td>
+<td style="text-align: center;">30.403</td>
+<td style="text-align: center;">31.438</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(2.913)</td>
-<td style="text-align: right;">(2.957)</td>
-<td style="text-align: right;">(2.967)</td>
+<td style="text-align: center;">(2.913)</td>
+<td style="text-align: center;">(2.957)</td>
+<td style="text-align: center;">(2.967)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">poly(lrscale_c, 2)1</td>
-<td style="text-align: right;">103.697</td>
-<td style="text-align: right;">105.407</td>
-<td style="text-align: right;">108.606</td>
+<td style="text-align: center;">103.697</td>
+<td style="text-align: center;">105.407</td>
+<td style="text-align: center;">108.606</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(3.333)</td>
-<td style="text-align: right;">(3.204)</td>
-<td style="text-align: right;">(3.208)</td>
+<td style="text-align: center;">(3.333)</td>
+<td style="text-align: center;">(3.204)</td>
+<td style="text-align: center;">(3.208)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">poly(lrscale_c, 2)2</td>
-<td style="text-align: right;">35.905</td>
-<td style="text-align: right;">39.358</td>
-<td style="text-align: right;">40.284</td>
+<td style="text-align: center;">35.905</td>
+<td style="text-align: center;">39.358</td>
+<td style="text-align: center;">40.284</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(3.116)</td>
-<td style="text-align: right;">(3.149)</td>
-<td style="text-align: right;">(3.160)</td>
+<td style="text-align: center;">(3.116)</td>
+<td style="text-align: center;">(3.149)</td>
+<td style="text-align: center;">(3.160)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">cabinetNo × eduyrs_c</td>
-<td style="text-align: right;">0.013</td>
-<td style="text-align: right;">0.014</td>
-<td style="text-align: right;">0.015</td>
+<td style="text-align: center;">0.013</td>
+<td style="text-align: center;">0.014</td>
+<td style="text-align: center;">0.015</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(0.003)</td>
-<td style="text-align: right;">(0.003)</td>
-<td style="text-align: right;">(0.003)</td>
+<td style="text-align: center;">(0.003)</td>
+<td style="text-align: center;">(0.003)</td>
+<td style="text-align: center;">(0.003)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">cabinetNo × poly(agea_c, 2)1</td>
-<td style="text-align: right;">-4.329</td>
-<td style="text-align: right;">-2.065</td>
-<td style="text-align: right;">-3.641</td>
+<td style="text-align: center;">−4.329</td>
+<td style="text-align: center;">−2.065</td>
+<td style="text-align: center;">−3.641</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(4.620)</td>
-<td style="text-align: right;">(4.675)</td>
-<td style="text-align: right;">(4.691)</td>
+<td style="text-align: center;">(4.620)</td>
+<td style="text-align: center;">(4.675)</td>
+<td style="text-align: center;">(4.691)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">cabinetNo × poly(agea_c, 2)2</td>
-<td style="text-align: right;">13.465</td>
-<td style="text-align: right;">14.204</td>
-<td style="text-align: right;">13.904</td>
+<td style="text-align: center;">13.465</td>
+<td style="text-align: center;">14.204</td>
+<td style="text-align: center;">13.904</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(4.284)</td>
-<td style="text-align: right;">(4.350)</td>
-<td style="text-align: right;">(4.366)</td>
+<td style="text-align: center;">(4.284)</td>
+<td style="text-align: center;">(4.350)</td>
+<td style="text-align: center;">(4.366)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">cabinetNo × poly(lrscale_c, 2)1</td>
-<td style="text-align: right;">-22.081</td>
-<td style="text-align: right;">-23.826</td>
-<td style="text-align: right;">-26.594</td>
+<td style="text-align: center;">−22.081</td>
+<td style="text-align: center;">−23.826</td>
+<td style="text-align: center;">−26.594</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(4.862)</td>
-<td style="text-align: right;">(4.494)</td>
-<td style="text-align: right;">(4.496)</td>
+<td style="text-align: center;">(4.862)</td>
+<td style="text-align: center;">(4.494)</td>
+<td style="text-align: center;">(4.496)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">cabinetNo × poly(lrscale_c, 2)2</td>
-<td style="text-align: right;">-108.724</td>
-<td style="text-align: right;">-113.550</td>
-<td style="text-align: right;">-113.758</td>
+<td style="text-align: center;">−108.724</td>
+<td style="text-align: center;">−113.550</td>
+<td style="text-align: center;">−113.758</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: right;">(4.367)</td>
-<td style="text-align: right;">(4.397)</td>
-<td style="text-align: right;">(4.413)</td>
+<td style="text-align: center;">(4.367)</td>
+<td style="text-align: center;">(4.397)</td>
+<td style="text-align: center;">(4.413)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SD (Intercept cntry)</td>
-<td style="text-align: right;">0.931</td>
-<td style="text-align: right;">0.965</td>
-<td style="text-align: right;">0.970</td>
+<td style="text-align: center;">0.931</td>
+<td style="text-align: center;">0.965</td>
+<td style="text-align: center;">0.970</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SD (Observations)</td>
-<td style="text-align: right;">2.106</td>
-<td style="text-align: right;">2.142</td>
-<td style="text-align: right;">2.150</td>
+<td style="text-align: center;">2.106</td>
+<td style="text-align: center;">2.142</td>
+<td style="text-align: center;">2.150</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SD (Intercept essround_cntrycntry)</td>
-<td style="text-align: right;">0.500</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td style="text-align: center;">0.500</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">SD (Intercept essround)</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">0.219</td>
-<td style="text-align: right;"></td>
+<td style="text-align: left; box-shadow: 0px 1.5px;">SD (Intercept essround)</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">0.219</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">:———————————–</td>
-<td style="text-align: right;">———:</td>
-<td style="text-align: right;">———:</td>
-<td style="text-align: right;">———:</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Num.Obs.</td>
-<td style="text-align: right;">205611</td>
-<td style="text-align: right;">205611</td>
-<td style="text-align: right;">205611</td>
+<td style="text-align: center;">205611</td>
+<td style="text-align: center;">205611</td>
+<td style="text-align: center;">205611</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">R2 Marg.</td>
-<td style="text-align: right;">0.040</td>
-<td style="text-align: right;">0.040</td>
-<td style="text-align: right;">0.041</td>
+<td style="text-align: center;">0.040</td>
+<td style="text-align: center;">0.040</td>
+<td style="text-align: center;">0.041</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">R2 Cond.</td>
-<td style="text-align: right;">0.233</td>
-<td style="text-align: right;">0.209</td>
-<td style="text-align: right;">0.203</td>
+<td style="text-align: center;">0.233</td>
+<td style="text-align: center;">0.209</td>
+<td style="text-align: center;">0.203</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">AIC</td>
-<td style="text-align: right;">918254.1</td>
-<td style="text-align: right;">924409.6</td>
-<td style="text-align: right;">925869.4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">BIC</td>
-<td style="text-align: right;">918417.9</td>
-<td style="text-align: right;">924573.3</td>
-<td style="text-align: right;">926022.9</td>
+<td style="text-align: center;">918254.1</td>
+<td style="text-align: center;">924409.6</td>
+<td style="text-align: center;">925869.4</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ICC</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">BIC</td>
+<td style="text-align: center;">918417.9</td>
+<td style="text-align: center;">924573.3</td>
+<td style="text-align: center;">926022.9</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">ICC</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">RMSE</td>
-<td style="text-align: right;">2.13</td>
-<td style="text-align: right;">2.16</td>
-<td style="text-align: right;">2.17</td>
+<td style="text-align: center;">2.13</td>
+<td style="text-align: center;">2.16</td>
+<td style="text-align: center;">2.17</td>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <p>Analysis of variance (ANOVA) models and refitting with Maximum Likelihood instead of Restricted Maximum Likelihood.</p>
@@ -971,66 +1288,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 14%">
-<col style="width: 13%">
-<col style="width: 14%">
-<col style="width: 4%">
-<col style="width: 11%">
-</colgroup>
+
+<table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">npar</th>
-<th style="text-align: right;">AIC</th>
-<th style="text-align: right;">BIC</th>
-<th style="text-align: right;">logLik</th>
-<th style="text-align: right;">deviance</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">df</th>
-<th style="text-align: right;">p.value</th>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+npar
+</th>
+<th style="text-align:right;">
+AIC
+</th>
+<th style="text-align:right;">
+BIC
+</th>
+<th style="text-align:right;">
+logLik
+</th>
+<th style="text-align:right;">
+deviance
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+df
+</th>
+<th style="text-align:right;">
+p.value
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">ml1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">918249.0</td>
-<td style="text-align: right;">918412.7</td>
-<td style="text-align: right;">-459108.5</td>
-<td style="text-align: right;">918217.0</td>
-<td style="text-align: right;">7617.436</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<tr>
+<td style="text-align:left;">
+ml1
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+918249.0
+</td>
+<td style="text-align:right;">
+918412.7
+</td>
+<td style="text-align:right;">
+-459108.5
+</td>
+<td style="text-align:right;">
+918217.0
+</td>
+<td style="text-align:right;">
+7617.436
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">ml2</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">924404.7</td>
-<td style="text-align: right;">924568.4</td>
-<td style="text-align: right;">-462186.3</td>
-<td style="text-align: right;">924372.7</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;"></td>
+<tr>
+<td style="text-align:left;">
+ml2
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+924404.7
+</td>
+<td style="text-align:right;">
+924568.4
+</td>
+<td style="text-align:right;">
+-462186.3
+</td>
+<td style="text-align:right;">
+924372.7
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">ml3</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">925864.4</td>
-<td style="text-align: right;">926017.9</td>
-<td style="text-align: right;">-462917.2</td>
-<td style="text-align: right;">925834.4</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<tr>
+<td style="text-align:left;">
+ml3
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+925864.4
+</td>
+<td style="text-align:right;">
+926017.9
+</td>
+<td style="text-align:right;">
+-462917.2
+</td>
+<td style="text-align:right;">
+925834.4
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
 </tr>
 </tbody>
+
 </table>
 </div>
 </div>
@@ -1139,23 +1515,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 28%">
-<col style="width: 21%">
-<col style="width: 12%">
-<col style="width: 13%">
-<col style="width: 13%">
-</colgroup>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">effect</th>
-<th style="text-align: left;">group</th>
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">effect</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">group</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
 </tr>
 </thead>
 <tbody>
@@ -1233,6 +1601,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <div class="cell">
@@ -1303,25 +1673,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 12%">
-</colgroup>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-<th style="text-align: right;">conf.low</th>
-<th style="text-align: right;">conf.high</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.low</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">conf.high</th>
 </tr>
 </thead>
 <tbody>
@@ -1444,6 +1805,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <p>Fixed effects for countries (<em>“cnty”</em>) and ESS rounds (<em>“essround”</em>) not shown.</p>
@@ -1455,25 +1818,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 20%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 17%">
-<col style="width: 10%">
-<col style="width: 11%">
-</colgroup>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">r.squared</th>
-<th style="text-align: right;">adj.r.squared</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-<th style="text-align: right;">df.residual</th>
-<th style="text-align: right;">nobs</th>
-<th style="text-align: left;">se_type</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">r.squared</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">adj.r.squared</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">df.residual</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">nobs</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">se_type</th>
 </tr>
 </thead>
 <tbody>
@@ -1488,6 +1842,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <div class="cell" data-fig.asp="0.618">
@@ -1570,39 +1926,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+
+<table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">quantile</th>
-<th style="text-align: right;">share_match</th>
+<tr>
+<th style="text-align:left;">
+quantile
+</th>
+<th style="text-align:right;">
+share_match
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">0%</td>
-<td style="text-align: right;">11.4</td>
+<tr>
+<td style="text-align:left;">
+0%
+</td>
+<td style="text-align:right;">
+11.4
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">10%</td>
-<td style="text-align: right;">65.4</td>
+<tr>
+<td style="text-align:left;">
+10%
+</td>
+<td style="text-align:right;">
+65.4
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">25%</td>
-<td style="text-align: right;">81.9</td>
+<tr>
+<td style="text-align:left;">
+25%
+</td>
+<td style="text-align:right;">
+81.9
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">50%</td>
-<td style="text-align: right;">95.8</td>
+<tr>
+<td style="text-align:left;">
+50%
+</td>
+<td style="text-align:right;">
+95.8
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">75%</td>
-<td style="text-align: right;">99.2</td>
+<tr>
+<td style="text-align:left;">
+75%
+</td>
+<td style="text-align:right;">
+99.2
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">100%</td>
-<td style="text-align: right;">100.0</td>
+<tr>
+<td style="text-align:left;">
+100%
+</td>
+<td style="text-align:right;">
+100.0
+</td>
 </tr>
 </tbody>
+
 </table>
 </div>
 </div>
@@ -1633,8 +2019,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 
-<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4ff326dbe4262f86d3ce" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4ff326dbe4262f86d3ce">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"cntry":["HR","HU","RO","BG","LV","PL","BE","PT","IL","FR","CH","CZ","TR","GB","IT","DE","EE","ES","LT","SI","AT","FI","NL","SK","GR","IS","NO","SE","IE","DK","CY","LU"],"min":[11.4,13.8,18,34,37.1,37.4,46.8,57.7,58.7,65,74.3,74.3,75.2,76.5,76.7,77.5,80,80.1,81.2,85.9,91.5,91.8,92.1,94.7,96,96,96.6,96.7,97.1,97.6,98.5,99.1],"median":[73,47.6,18,60.2,68.6,90.1,80.1,92.2,71.8,80.8,91,100,82.4,81.9,94.1,89.2,95.8,98.3,93.3,95.8,98.7,93,99.7,100,96.8,98.7,98.7,99.8,98.9,98.8,99.5,99.6],"max":[100,95.5,18,99.1,100,98.2,92,99.6,78.7,83.7,99.9,100,89.6,90.8,96.5,92.4,100,99.7,96.4,100,99.6,94.5,100,100,99.2,100,99.5,100,100,99.4,100,100],"ess_rounds":[4,10,1,5,2,9,10,10,6,10,10,9,2,10,5,9,8,9,6,10,6,10,10,7,5,5,10,9,10,8,5,2]},"columns":[{"id":"cntry","name":"cntry","type":"character"},{"id":"min","name":"min","type":"numeric"},{"id":"median","name":"median","type":"numeric"},{"id":"max","name":"max","type":"numeric"},{"id":"ess_rounds","name":"ess_rounds","type":"numeric"}],"searchable":true,"striped":true,"dataKey":"81f7a79fb7b38de4a154aa2d6a88c45e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div class="reactable html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7cc35fe3a14cf70b5cce" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7cc35fe3a14cf70b5cce">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"cntry":["HR","HU","RO","BG","LV","PL","BE","PT","IL","FR","CH","CZ","TR","GB","IT","DE","EE","ES","LT","SI","AT","FI","NL","SK","GR","IS","NO","SE","IE","DK","CY","LU"],"min":[11.4,13.8,18,34,37.1,37.4,46.8,57.7,58.7,65,74.3,74.3,75.2,76.5,76.7,77.5,80,80.1,81.2,85.9,91.5,91.8,92.1,94.7,96,96,96.6,96.7,97.1,97.6,98.5,99.1],"median":[73,47.6,18,60.2,68.6,90.1,80.1,92.2,71.8,80.8,91,100,82.4,81.9,94.1,89.2,95.8,98.3,93.3,95.8,98.7,93,99.7,100,96.8,98.7,98.7,99.8,98.9,98.8,99.5,99.6],"max":[100,95.5,18,99.1,100,98.2,92,99.6,78.7,83.7,99.9,100,89.6,90.8,96.5,92.4,100,99.7,96.4,100,99.6,94.5,100,100,99.2,100,99.5,100,100,99.4,100,100],"ess_rounds":[4,10,1,5,2,9,10,10,6,10,10,9,2,10,5,9,8,9,6,10,6,10,10,7,5,5,10,9,10,8,5,2]},"columns":[{"id":"cntry","name":"cntry","type":"character"},{"id":"min","name":"min","type":"numeric"},{"id":"median","name":"median","type":"numeric"},{"id":"max","name":"max","type":"numeric"},{"id":"ess_rounds","name":"ess_rounds","type":"numeric"}],"searchable":true,"striped":true,"dataKey":"81f7a79fb7b38de4a154aa2d6a88c45e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 

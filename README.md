@@ -1,6 +1,11 @@
 # ESS parties
 
-Code and supplementary information for: Paul Bederke and Holger Döring. 2023. “Harmonizing and Linking Party Information: The ESS as an Example of Complex Data Linking.” doi: [10.5281/zenodo.8421233](https://doi.org/10.5281/zenodo.8421233) — see [manuscript](Bederke_Doering_2023.pdf)
+Code and supplementary material for:
+
+- Bederke, P. and Döring, H. (2023) “Harmonizing and linking party information: The ESS as an example of complex data linking”. Zenodo (preprint). doi: [10.5281/zenodo.10061173](https://doi.org/10.5281/zenodo.10061173)
+- Bederke, P. and Döring, H. (2023) “Linking European Social Survey (ESS) party information”. Zenodo (software). doi: [10.5281/zenodo.8421232](https://doi.org/10.5281/zenodo.8421232)
+
+Website at <https://hdigital.github.io/ess-linking/>
 
 ## Notes
 
