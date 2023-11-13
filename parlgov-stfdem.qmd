@@ -1,6 +1,6 @@
 # ParlGov losers' consent
 
-ESS linking example – see also sections "Party-voted-for in government" and "Performance of Party Facts linking" in manuscript.
+Losers' consent models example – see also sections "Party-voted-for in government" and "Performance of Party Facts linking" in manuscript.
 
 ```{r}
 library(conflicted)
